@@ -7,6 +7,7 @@ const PublicRouter = (): React.ReactElement => {
     return (
         <Routes>
             <Route path="/" element={<TableClientes />} />
+            <Route path="/aaa" element={<>asdasd</>} />
         </Routes>
     );
 }
