@@ -15,7 +15,7 @@ type ChildrenProps = {
 
 export const MarcasContext = React.createContext<MarcasContextType>(INI_VALUES);
 
-export const MarcassProvider = ({ children }: ChildrenProps) => {
+export const MarcasProvider = ({ children }: ChildrenProps) => {
 	const [marcas, setMarcas] = React.useState<Marcas[]>([]);
 	// const [verification, setVerification] = React.useState<boolean>(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps

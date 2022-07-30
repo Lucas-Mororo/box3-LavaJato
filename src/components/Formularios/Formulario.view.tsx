@@ -79,7 +79,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                             bairro: data.bairro,
                             cidade: data.cidade,
                             estado: data.estado,
-                            id: (props.id === 0 ? Math.floor(Math.random() * 10) : props.id),
+                            id: (props.id),
                         });
                     } else {
                         Notify(

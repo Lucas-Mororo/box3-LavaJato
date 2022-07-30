@@ -84,8 +84,8 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 				id: 0,
 			},
 			{
-				name: "Lucas",
-				email: "Lucas@gmail.com",
+				name: "LucasMMMMMMMMMMMMMMMMM",
+				email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
 				is_active: true,
 				telefone: "88997908018",
 				CPFCNPJ: "06614405568",
@@ -120,8 +120,8 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 						id: 0,
 					},
 					{
-						name: "Lucas",
-						email: "Lucas@gmail.com",
+						name: "LucasMMMMMMMMMMMMMMMMM",
+						email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
 						is_active: true,
 						telefone: "88997908018",
 						CPFCNPJ: "06614405568",

@@ -2,18 +2,21 @@ import React from "react";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./core/components/Navbar/Components";
-// import { Toaster } from 'react-hot-toast';
-// import Navbar from "./core/components/Navbar/Components";
-// import PublicRouter from "./router/Public.router";
 import PublicRouter from "./router/Public.router";
+import { MarcasProvider } from "./context/Marca/marcas.context";
+import { ClientesProvider } from "./context/Usuarios/clientes.context";
 
 function App(): React.ReactElement {
   return (
     <>
       <BrowserRouter>
-        <Toaster position="top-right" reverseOrder={false} />
-        <Navbar />
-        <PublicRouter />
+        <ClientesProvider>
+          <MarcasProvider>
+            <Toaster position="top-right" reverseOrder={false} />
+            <Navbar />
+            <PublicRouter />
+          </MarcasProvider>
+        </ClientesProvider>
       </BrowserRouter>
     </>
   );
