@@ -6,7 +6,7 @@ import { INI_VALUES } from "./defaults";
 // import { deletePublication, getPublicationsProfile } from "services/Publicacoes";
 // import { usePortfolio } from "context/Portfolio";
 // import Notify from "../../utils/Notification";
-import appReducer from "./AppReducerPublicacoes";
+import appReducer from "./AppReducerMarcas";
 import Notify from "../../utils/Notification";
 
 type ChildrenProps = {
@@ -50,12 +50,32 @@ export const MarcassProvider = ({ children }: ChildrenProps) => {
 	useEffect(() => {
 		setMarcas([
 			{
-				name: "isaac",
+				name: "Chevrolet",
 				id: 1,
 			},
 			{
-				name: "Lucas",
+				name: "Fiat",
 				id: 2,
+			},
+			{
+				name: "Ford",
+				id: 3,
+			},
+			{
+				name: "Honda",
+				id: 4,
+			},
+			{
+				name: "Hyundai",
+				id: 5,
+			},
+			{
+				name: "Toyota",
+				id: 6,
+			},
+			{
+				name: "Volkswagen",
+				id: 7,
 			},
 		])
 		dispatch({
@@ -64,12 +84,32 @@ export const MarcassProvider = ({ children }: ChildrenProps) => {
 				...initialState,
 				marcas: [
 					{
-						name: "isaac",
+						name: "Chevrolet",
 						id: 1,
 					},
 					{
-						name: "Lucas",
+						name: "Fiat",
 						id: 2,
+					},
+					{
+						name: "Ford",
+						id: 3,
+					},
+					{
+						name: "Honda",
+						id: 4,
+					},
+					{
+						name: "Hyundai",
+						id: 5,
+					},
+					{
+						name: "Toyota",
+						id: 6,
+					},
+					{
+						name: "Volkswagen",
+						id: 7,
 					},
 				]
 			}

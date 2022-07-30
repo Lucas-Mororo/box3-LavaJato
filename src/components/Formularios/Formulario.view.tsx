@@ -15,7 +15,6 @@ export default function FormularioView(props: { action: string, id: number, clie
     const [fone, setFone] = React.useState<String>('');
 
     async function action(data: Clientes) {
-        console.log(data);
         if (props.action === "CadastroCliente") {
             props.setOpen(false);
             addClient(data);
@@ -30,7 +29,6 @@ export default function FormularioView(props: { action: string, id: number, clie
     React.useEffect(() => {
         if (props.action === "AlterarCliente") {
             const data = props.clientes.filter((value) => value.id === props.id)
-            console.log(data[0]);
             reset(data[0]);
             setCnpjCpf(data[0].CPFCNPJ.length === 11 ? CPF(data[0].CPFCNPJ) : CNPJ(data[0].CPFCNPJ));
             setFone(phone(data[0].telefone));
@@ -66,7 +64,6 @@ export default function FormularioView(props: { action: string, id: number, clie
     return (
         <form
             onSubmit={handleSubmit((data) => {
-                console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
                 if (props.action !== "CadastroCliente") {
                     if (JSON.stringify(clientes) !== JSON.stringify(data)) {
                         action({
@@ -92,6 +89,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                     }
                 } else {
                     setDisabled(true);
+                    const id = props.clientes.length;
                     action({
                         name: data.name,
                         email: data.email,
@@ -105,7 +103,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                         bairro: data.bairro,
                         cidade: data.cidade,
                         estado: data.estado,
-                        id: (props.id === 0 ? Math.floor(Math.random() * 10) : props.id)
+                        id: id,
                     });
                 }
             })}

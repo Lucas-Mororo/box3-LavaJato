@@ -6,7 +6,7 @@ import { INI_VALUES } from "./defaults";
 // import { deletePublication, getPublicationsProfile } from "services/Publicacoes";
 // import { usePortfolio } from "context/Portfolio";
 // import Notify from "../../utils/Notification";
-import appReducer from "./AppReducerPublicacoes";
+import appReducer from "./AppReducerModelos";
 import Notify from "../../utils/Notification";
 
 type ChildrenProps = {
@@ -62,17 +62,17 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 			{
 				modelo: "Onix",
 				marca: "Chevrolet",
-				id: 2,
+				id: 3,
 			},
 			{
 				modelo: "Tracker",
 				marca: "Chevrolet",
-				id: 2,
+				id: 4,
 			},
 			{
 				modelo: "Uno",
 				marca: "Fiat",
-				id: 2,
+				id: 5,
 			},
 		])
 		dispatch({
@@ -93,17 +93,17 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 					{
 						modelo: "Onix",
 						marca: "Chevrolet",
-						id: 2,
+						id: 3,
 					},
 					{
 						modelo: "Tracker",
 						marca: "Chevrolet",
-						id: 2,
+						id: 4,
 					},
 					{
 						modelo: "Uno",
 						marca: "Fiat",
-						id: 2,
+						id: 5,
 					},
 				]
 			}

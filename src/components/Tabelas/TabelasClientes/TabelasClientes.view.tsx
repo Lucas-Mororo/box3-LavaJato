@@ -44,7 +44,7 @@ export default function TabelaClientesView(): React.ReactElement {
               <SearchIcon />
               Buscar
             </Button>
-            <Dialog action={"CadastroCliente"} id={0} clientes={[]} />
+            <Dialog action={"CadastroCliente"} id={0} clientes={stateReducer.clientes} />
           </div>
         </div>
       </div>

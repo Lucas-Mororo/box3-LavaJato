@@ -6,7 +6,7 @@ import { INI_VALUES } from "./defaults";
 // import { deletePublication, getPublicationsProfile } from "services/Publicacoes";
 // import { usePortfolio } from "context/Portfolio";
 // import Notify from "../../utils/Notification";
-import appReducer from "./AppReducerPublicacoes";
+import appReducer from "./AppReducerClientes";
 import Notify from "../../utils/Notification";
 
 type ChildrenProps = {
