@@ -23,9 +23,8 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteClient(id: number) {
-		alert("asdasdasda");
-		if (window.confirm("Deseja deletar este depoimento?")) {
-			Notify("Evento deletado com sucesso!");
+		if (window.confirm("Deseja deletar este Cliente?")) {
+			Notify("Cliente deletado com sucesso!");
 			dispatch({
 				type: "DELETE",
 				payload: id,

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
-import Dialog from "../../Dialogs/index";
+// import Dialog from "../../Dialogs/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 // import InlineConfirmButton from "react-inline-confirm";
@@ -12,8 +12,6 @@ export default function TabelasModelosView(): React.ReactElement {
   const textValues = ["Delete", "Are you sure?", "Deleting..."];
   // const isExecuting = true;
   // const confirmIconClass = `fa fa-${isExecuting ? "circle-o-notch fa-spin" : "fa fa-trash"}`;
-
-  console.log(stateReducer);
 
   return (
     <>
@@ -45,7 +43,7 @@ export default function TabelasModelosView(): React.ReactElement {
               <SearchIcon />
               Buscar
             </Button>
-            <Dialog action={"Cadastro"} id={0} clientes={[]} />
+            {/* <Dialog action={"Cadastro"} id={0} clientes={[]} /> */}
           </div>
         </div>
       </div>

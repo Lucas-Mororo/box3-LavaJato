@@ -2,9 +2,9 @@
 import React from "react";
 import { Box, Button, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
-import { useClientesContext } from "../../context/Usuarios/hooks/useClientes";
-import { Clientes } from "../../models/clientes";
-import Notify from "../../utils/Notification";
+import { useClientesContext } from "../../../context/Usuarios/hooks/useClientes";
+import { Clientes } from "../../../models/clientes";
+import Notify from "../../../utils/Notification";
 
 export default function FormularioView(props: { action: string, id: number, clientes: Clientes[], setOpen: any }): React.ReactElement {
     const { register, handleSubmit, control, getValues, reset, formState: { errors }, } = useForm({ mode: "onSubmit" });
@@ -182,8 +182,8 @@ export default function FormularioView(props: { action: string, id: number, clie
                             onChange={(e) => {
                                 setFone(phone(e.target.value));
                             }}
-                            error={errors.fone?.telefone === "required"}
-                            helperText={errors.fone?.telefone === "required" && "O campo 'Telefone' é obrigatório!"}
+                            error={errors.telefone?.type === "required"}
+                            helperText={errors.telefone?.type === "required" && "O campo 'Telefone' é obrigatório!"}
                         />
                     </FormControl>
 
@@ -237,6 +237,100 @@ export default function FormularioView(props: { action: string, id: number, clie
                         />
                     </FormControl>
 
+                    <Controller
+                        name="is_active"
+                        control={control}
+                        rules={{
+                            required: true
+                        }}
+                        render={({
+                            field: { value, onChange }
+                        }) => (
+                            <TextField
+                                style={{ width: "100%", margin: "0px" }}
+                                // className={classes.textField}
+                                label="Status do Usuário*"
+                                select
+                                variant='outlined'
+                                fullWidth
+                                margin="normal"
+                                value={getValues("is_active") ? value : ""}
+                                onChange={(e) => { onChange(e) }}
+                                error={errors.is_active?.type === "required"}
+                                helperText={errors.is_active?.type === "required" && <span>O campo "Status" é obrigatório!</span>}
+                            >
+                                <MenuItem value="">Selecione o status do usuário</MenuItem>
+                                <MenuItem value="true">Ativado</MenuItem>
+                                <MenuItem value="false">Desativado</MenuItem>
+                            </TextField>
+                        )}
+                    />
+                </div>
+
+                <div style={{
+                    width: "100%",
+                    padding: "10px 0 10px 0",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    gap: "15px",
+                }}>
+
+                    <FormControl size='small' fullWidth>
+                        <TextField
+                            label='Digite seu Estado*'
+                            variant='outlined'
+                            // className={classes.textField}
+                            type='text'
+                            style={{
+                                width: "100%",
+                            }}
+                            {...register("estado", { required: true })}
+                            error={errors.estado?.type === "required"}
+                            helperText={
+                                errors.estado?.type === "required" &&
+                                "O campo 'estado' é obrigatório"
+                            }
+                        />
+                    </FormControl>
+
+                    <FormControl size='small' fullWidth>
+                        <TextField
+                            label='Digite seu Cidade*'
+                            variant='outlined'
+                            // className={classes.textField}
+                            type='text'
+                            style={{
+                                width: "100%",
+                            }}
+                            {...register("cidade", { required: true })}
+                            error={errors.cidade?.type === "required"}
+                            helperText={
+                                errors.cidade?.type === "required" &&
+                                "O campo 'cidade' é obrigatório"
+                            }
+                        />
+                    </FormControl>
+
+                    <FormControl size='small' fullWidth>
+                        <TextField
+                            label='Digite seu Bairro*'
+                            variant='outlined'
+                            // className={classes.textField}
+                            type='text'
+                            style={{
+                                width: "100%",
+                            }}
+                            {...register("bairro", { required: true })}
+                            error={errors.bairro?.type === "required"}
+                            helperText={
+                                errors.bairro?.type === "required" &&
+                                "O campo 'bairro' é obrigatório"
+                            }
+                        />
+                    </FormControl>
+
                     <FormControl size='small' fullWidth>
                         <TextField
                             label='Digite seu Logradouro'
@@ -254,17 +348,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                             }
                         />
                     </FormControl>
-                </div>
 
-                <div style={{
-                    width: "100%",
-                    padding: "10px 0 10px 0",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    gap: "15px",
-                }}>
                     <FormControl size='small' fullWidth>
                         <TextField
                             label='Digite seu Número'
@@ -301,88 +385,8 @@ export default function FormularioView(props: { action: string, id: number, clie
                         />
                     </FormControl>
 
-                    <FormControl size='small' fullWidth>
-                        <TextField
-                            label='Digite seu Bairro*'
-                            variant='outlined'
-                            // className={classes.textField}
-                            type='text'
-                            style={{
-                                width: "100%",
-                            }}
-                            {...register("bairro", { required: true })}
-                            error={errors.bairro?.type === "required"}
-                            helperText={
-                                errors.bairro?.type === "required" &&
-                                "O campo 'bairro' é obrigatório"
-                            }
-                        />
-                    </FormControl>
+                   
 
-                    <FormControl size='small' fullWidth>
-                        <TextField
-                            label='Digite seu Cidade*'
-                            variant='outlined'
-                            // className={classes.textField}
-                            type='text'
-                            style={{
-                                width: "100%",
-                            }}
-                            {...register("cidade", { required: true })}
-                            error={errors.cidade?.type === "required"}
-                            helperText={
-                                errors.cidade?.type === "required" &&
-                                "O campo 'cidade' é obrigatório"
-                            }
-                        />
-                    </FormControl>
-
-                    <FormControl size='small' fullWidth>
-                        <TextField
-                            label='Digite seu Estado*'
-                            variant='outlined'
-                            // className={classes.textField}
-                            type='text'
-                            style={{
-                                width: "100%",
-                            }}
-                            {...register("estado", { required: true })}
-                            error={errors.estado?.type === "required"}
-                            helperText={
-                                errors.estado?.type === "required" &&
-                                "O campo 'estado' é obrigatório"
-                            }
-                        />
-                    </FormControl>
-
-                    <Controller
-                        name="is_active"
-                        control={control}
-                        rules={{
-                            required: true
-                        }}
-                        render={({
-                            field: { value, onChange }
-                        }) => (
-                            <TextField
-                                style={{ width: "100%", margin: "0px" }}
-                                // className={classes.textField}
-                                label="Status do Usuário*"
-                                select
-                                variant='outlined'
-                                fullWidth
-                                margin="normal"
-                                value={getValues("is_active") ? value : ""}
-                                onChange={(e) => { onChange(e) }}
-                                error={errors.is_active?.type === "required"}
-                                helperText={errors.is_active?.type === "required" && <span>O campo "Status" é obrigatório!</span>}
-                            >
-                                <MenuItem value="">Selecione o status do usuário</MenuItem>
-                                <MenuItem value="true">Ativado</MenuItem>
-                                <MenuItem value="false">Desativado</MenuItem>
-                            </TextField>
-                        )}
-                    />
                 </div>
 
             </div>

@@ -1,10 +1,7 @@
 import { Box, Button, Dialog, Typography } from "@material-ui/core";
 import React from "react";
-import Formulario from "../../components/Formularios/index";
-import { Clientes } from "../../models/clientes";
-// import { useModalContext } from "context/modal/hooks/useModal";
-// import FormularioCadastroPublicacoes from "components/Formularios/Cadastro/FormularioCadastroPublicacoes";
-// import { useTheme } from "@material-ui/core";
+import Formulario from "../../Formularios/FormularioClientes/index";
+import { Clientes } from "../../../models/clientes";
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 

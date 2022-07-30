@@ -29,7 +29,7 @@ export default function reducer(state: { marcas: Marcas[]; }, action: { type: an
             });
             return {
                 ...state,
-                usuarios: updatedMarcas,
+                marcas: updatedMarcas,
             };
     }
 }

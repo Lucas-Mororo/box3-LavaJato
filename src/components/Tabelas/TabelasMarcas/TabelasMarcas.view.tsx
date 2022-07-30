@@ -13,7 +13,7 @@ import {
     Typography,
 } from "@material-ui/core";
 import { useMarcasContext } from "../../../context/Marca/hooks/useMarcas";
-import Dialog from "../../Dialogs/index";
+import Dialog from "../../Dialogs/DialogMarca/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
@@ -70,7 +70,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                             <SearchIcon />
                             Buscar
                         </Button>
-                        <Dialog action={"Cadastro"} id={0} clientes={[]} />
+                        <Dialog action={"CadastroMarca"} id={0} marcas={stateReducer.marcas} />
                     </div>
                 </div>
             </div>
@@ -136,18 +136,18 @@ export default function TabelasMarcasView(): React.ReactElement {
                                                 gap: "10px",
                                             }}
                                         >
-                                            {/* <Dialog
-                                                action={"Alterar"}
+                                            <Dialog
+                                                action={"AlterarMarca"}
                                                 id={marca.id}
                                                 marcas={stateReducer.marcas}
-                                            /> */}
+                                            />
 
                                             <Button
                                                 variant="contained"
                                                 style={{ backgroundColor: "#c82333", color: "white" }}
-                                            // onClick={() => {
-                                            //   deleteMarcas(marca.id);
-                                            // }}
+                                                onClick={() => {
+                                                    deleteMarca(marca.id);
+                                                }}
                                             >
                                                 <DeleteForeverIcon />
                                                 Deletar

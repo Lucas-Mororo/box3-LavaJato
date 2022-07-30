@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useClientesContext } from "../../../context/Usuarios/hooks/useClientes";
-import Dialog from "../../Dialogs/index";
+import Dialog from "../../Dialogs/DialogCliente/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 // import InlineConfirmButton from "react-inline-confirm";
@@ -21,7 +21,6 @@ import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelaClientesView(): React.ReactElement {
   const { stateReducer, deleteClient } = useClientesContext();
-  console.log(stateReducer);
 
   return (
     <>

@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 import { MarcasContextType } from "./models/PropsMarcasContext";
 import { Marcas } from "../../models/marcas";
 import { INI_VALUES } from "./defaults";
-// import { deletePublication, getPublicationsProfile } from "services/Publicacoes";
-// import { usePortfolio } from "context/Portfolio";
-// import Notify from "../../utils/Notification";
 import appReducer from "./AppReducerMarcas";
 import Notify from "../../utils/Notification";
 
@@ -24,7 +21,7 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 
 	function deleteMarca(id: number) {
 		if (window.confirm("Deseja deletar esta marca?")) {
-			Notify("Evento deletado com sucesso!");
+			Notify("Marca deletada com sucesso!");
 			dispatch({
 				type: "DELETE",
 				payload: id,
@@ -32,7 +29,7 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 		}
 	}
 
-	function updateMarca(updatedMarc: Marcas) {
+	function updateMarca(updatedMarc: any) {
 		dispatch({
 			type: "UPDATE",
 			payload: updatedMarc,
@@ -51,31 +48,31 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 		setMarcas([
 			{
 				name: "Chevrolet",
-				id: 1,
+				id: 0,
 			},
 			{
 				name: "Fiat",
-				id: 2,
+				id: 1,
 			},
 			{
 				name: "Ford",
-				id: 3,
+				id: 2,
 			},
 			{
 				name: "Honda",
-				id: 4,
+				id: 3,
 			},
 			{
 				name: "Hyundai",
-				id: 5,
+				id: 4,
 			},
 			{
 				name: "Toyota",
-				id: 6,
+				id: 5,
 			},
 			{
 				name: "Volkswagen",
-				id: 7,
+				id: 6,
 			},
 		])
 		dispatch({
@@ -85,31 +82,31 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 				marcas: [
 					{
 						name: "Chevrolet",
-						id: 1,
+						id: 0,
 					},
 					{
 						name: "Fiat",
-						id: 2,
+						id: 1,
 					},
 					{
 						name: "Ford",
-						id: 3,
+						id: 2,
 					},
 					{
 						name: "Honda",
-						id: 4,
+						id: 3,
 					},
 					{
 						name: "Hyundai",
-						id: 5,
+						id: 4,
 					},
 					{
 						name: "Toyota",
-						id: 6,
+						id: 5,
 					},
 					{
 						name: "Volkswagen",
-						id: 7,
+						id: 6,
 					},
 				]
 			}
