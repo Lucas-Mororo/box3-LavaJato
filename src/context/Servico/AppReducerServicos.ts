@@ -29,7 +29,7 @@ export default function reducer(state: { servicos: Servicos[]; }, action: { type
             });
             return {
                 ...state,
-                usuarios: updatedServicos,
+                servicos: updatedServicos,
             };
     }
 }

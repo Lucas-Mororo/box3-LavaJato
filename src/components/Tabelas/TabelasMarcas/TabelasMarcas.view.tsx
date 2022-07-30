@@ -74,30 +74,31 @@ export default function TabelasMarcasView(): React.ReactElement {
                     </div>
                 </div>
             </div>
-            <Paper>
-                <TableContainer>
-                    <Table stickyHeader aria-label="sticky table">
-                        <TableHead>
-                            <TableRow hover role="checkbox" tabIndex={-1}>
-                                {/* <TableCell align="center" style={{ width: "20%" }}>
+            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+                <Paper style={{ width: "70%"}}>
+                    <TableContainer>
+                        <Table stickyHeader aria-label="sticky table">
+                            <TableHead>
+                                <TableRow hover role="checkbox" tabIndex={-1}>
+                                    {/* <TableCell align="center" style={{ width: "20%" }}>
                                     <Typography style={{ fontWeight: "bold", color: "black" }}>Id&nbsp;</Typography>
                                 </TableCell> */}
-                                <TableCell align="center" style={{ width: "60%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Marca&nbsp;
-                                    </Typography>
-                                </TableCell>
-                                <TableCell align="center" style={{ width: "40%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Ações&nbsp;
-                                    </Typography>
-                                </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {stateReducer.marcas?.map((marca, index) => (
-                                <TableRow key={index}>
-                                    {/* 
+                                    <TableCell align="center" style={{ width: "60%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Marca&nbsp;
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="center" style={{ width: "40%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Ações&nbsp;
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {stateReducer.marcas?.map((marca, index) => (
+                                    <TableRow key={index}>
+                                        {/* 
                                     <TableCell align="center" style={{
                                         width: "5%",
                                     }}>
@@ -123,43 +124,44 @@ export default function TabelasMarcasView(): React.ReactElement {
                                         </Box>
                                         </div>
                                     </TableCell> */}
-                                    <TableCell align="center" style={{ width: "25%" }}>
-                                        {marca.name}
-                                    </TableCell>
+                                        <TableCell align="center" style={{ width: "25%" }}>
+                                            {marca.name}
+                                        </TableCell>
 
-                                    <TableCell align="center">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: " center",
-                                                gap: "10px",
-                                            }}
-                                        >
-                                            <Dialog
-                                                action={"AlterarMarca"}
-                                                id={marca.id}
-                                                marcas={stateReducer.marcas}
-                                            />
-
-                                            <Button
-                                                variant="contained"
-                                                style={{ backgroundColor: "#c82333", color: "white" }}
-                                                onClick={() => {
-                                                    deleteMarca(marca.id);
+                                        <TableCell align="center">
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: " center",
+                                                    gap: "10px",
                                                 }}
                                             >
-                                                <DeleteForeverIcon />
-                                                Deletar
-                                            </Button>
-                                        </div>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Paper>
+                                                <Dialog
+                                                    action={"AlterarMarca"}
+                                                    id={marca.id}
+                                                    marcas={stateReducer.marcas}
+                                                />
+
+                                                <Button
+                                                    variant="contained"
+                                                    style={{ backgroundColor: "#c82333", color: "white" }}
+                                                    onClick={() => {
+                                                        deleteMarca(marca.id);
+                                                    }}
+                                                >
+                                                    <DeleteForeverIcon />
+                                                    Deletar
+                                                </Button>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Paper>
+            </div>
         </>
     );
 }

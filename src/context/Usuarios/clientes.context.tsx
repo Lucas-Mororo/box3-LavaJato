@@ -47,24 +47,6 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 		});
 	}
 
-	// useEffect(() => {
-	// 	getPublicationsProfile(state.id)
-	// 		.then(({ data }) => {
-	// 			setPublicacoes(data);
-	// 			dispatch({
-	// 				type: "INITIALIZING",
-	// 				payload: {
-	// 					...initialState,
-	// 					publicacoes: data
-	// 				}
-	// 			})
-	// 		})
-	// 		.catch(() => {
-	// 			setVerification(false);
-	// 		});
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [state.id])
-
 	useEffect(() => {
 		setClientes([
 			{

@@ -1,6 +1,6 @@
 export interface Servicos {
-  serviço: string;
-  descrição: string;
+  servico: string;
+  descricao: string;
   valor: string,
   id: number;
 }

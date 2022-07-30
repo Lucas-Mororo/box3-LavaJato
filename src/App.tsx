@@ -6,6 +6,7 @@ import PublicRouter from "./router/Public.router";
 import { MarcasProvider } from "./context/Marca/marcas.context";
 import { ClientesProvider } from "./context/Usuarios/clientes.context";
 import { ModelossProvider } from "./context/Modelo/modelos.context";
+import { ServicossProvider } from "./context/Servico/servicos.context";
 
 function App(): React.ReactElement {
   return (
@@ -14,9 +15,11 @@ function App(): React.ReactElement {
         <ClientesProvider>
           <MarcasProvider>
             <ModelossProvider>
-              <Toaster position="top-right" reverseOrder={false} />
-              <Navbar />
-              <PublicRouter />
+              <ServicossProvider>
+                <Toaster position="top-right" reverseOrder={false} />
+                <Navbar />
+                <PublicRouter />
+              </ServicossProvider>
             </ModelossProvider>
           </MarcasProvider>
         </ClientesProvider>

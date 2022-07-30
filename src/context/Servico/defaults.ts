@@ -6,8 +6,8 @@ import { ServicosContextType } from "./models/PropsServicosContext";
 export const INI_VALUES: ServicosContextType = {
     servicos: [
         {
-            serviço: "",
-            descrição: "",
+            servico: "",
+            descricao: "",
             valor: "",
             id: 0,
         },
@@ -16,8 +16,8 @@ export const INI_VALUES: ServicosContextType = {
     stateReducer: {
         servicos: [
             {
-                serviço: "",
-                descrição: "",
+                servico: "",
+                descricao: "",
                 valor: "",
                 id: 0,
             },
