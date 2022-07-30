@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import TableAtendimentos from '../pages/TableAtendimentos';
 import TableClientes from '../pages/TableClientes';
 import TableMarcas from '../pages/TableMarcas';
 import TableModelos from '../pages/TableModelos';
@@ -14,6 +15,7 @@ const PublicRouter = (): React.ReactElement => {
             <Route path="/LavaJato/Modelos" element={<TableModelos />} />
             <Route path="/LavaJato/Clientes" element={<TableClientes />} />
             <Route path="/LavaJato/Servicos" element={<TableServicos />} />
+            <Route path="/LavaJato/Atendimentos" element={<TableAtendimentos />} />
         </Routes>
     );
 }

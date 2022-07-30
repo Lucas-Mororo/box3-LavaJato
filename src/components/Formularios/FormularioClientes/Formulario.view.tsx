@@ -334,6 +334,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                             style={{
                                 width: "100%",
                             }}
+                            value={cep}
                             {...register("CEP", { required: true })}
                             onChange={(e) => {
 
