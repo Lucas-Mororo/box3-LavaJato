@@ -17,8 +17,6 @@ export const ModelosContext = React.createContext<ModelosContextType>(INI_VALUES
 
 export const ModelossProvider = ({ children }: ChildrenProps) => {
 	const [modelos, setModelos] = React.useState<Modelos[]>([]);
-	// const [verification, setVerification] = React.useState<boolean>(true);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initialState = { modelos: [] };
 	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
 
@@ -52,27 +50,27 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 			{
 				modelo: "Camaro",
 				marca: "Chevrolet",
-				id: 1,
+				id: 0,
 			},
 			{
 				modelo: "Cronos",
 				marca: "Fiat",
-				id: 2,
+				id: 1,
 			},
 			{
 				modelo: "Onix",
 				marca: "Chevrolet",
-				id: 3,
+				id: 2,
 			},
 			{
 				modelo: "Tracker",
 				marca: "Chevrolet",
-				id: 4,
+				id: 3,
 			},
 			{
 				modelo: "Uno",
 				marca: "Fiat",
-				id: 5,
+				id: 4,
 			},
 		])
 		dispatch({
@@ -83,27 +81,27 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 					{
 						modelo: "Camaro",
 						marca: "Chevrolet",
-						id: 1,
+						id: 0,
 					},
 					{
 						modelo: "Cronos",
 						marca: "Fiat",
-						id: 2,
+						id: 1,
 					},
 					{
 						modelo: "Onix",
 						marca: "Chevrolet",
-						id: 3,
+						id: 2,
 					},
 					{
 						modelo: "Tracker",
 						marca: "Chevrolet",
-						id: 4,
+						id: 3,
 					},
 					{
 						modelo: "Uno",
 						marca: "Fiat",
-						id: 5,
+						id: 4,
 					},
 				]
 			}

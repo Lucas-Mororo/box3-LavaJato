@@ -1,17 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
-// import Dialog from "../../Dialogs/index";
+import Dialog from "../../Dialogs/DialogModelo/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
-// import InlineConfirmButton from "react-inline-confirm";
-
+import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelasModelosView(): React.ReactElement {
   const { stateReducer, deleteModelo } = useModelosContext();
-  const textValues = ["Delete", "Are you sure?", "Deleting..."];
-  // const isExecuting = true;
-  // const confirmIconClass = `fa fa-${isExecuting ? "circle-o-notch fa-spin" : "fa fa-trash"}`;
 
   return (
     <>
@@ -22,7 +18,7 @@ export default function TabelasModelosView(): React.ReactElement {
         maxWidth: "100%",
         margin: "10px"
       }}>
-        <img src={"logoBox3.png"} alt="logo" style={{ width: "10vw", height: "8vh" }} />
+        <img src={MyImage} alt="logo" style={{ width: "10vw", height: "8vh" }} />
         <div style={{
           display: "flex",
           width: "88%",
@@ -43,7 +39,7 @@ export default function TabelasModelosView(): React.ReactElement {
               <SearchIcon />
               Buscar
             </Button>
-            {/* <Dialog action={"Cadastro"} id={0} clientes={[]} /> */}
+            <Dialog action={"CadastroModelo"} id={0} modelos={stateReducer.modelos} />
           </div>
         </div>
       </div>
@@ -52,11 +48,8 @@ export default function TabelasModelosView(): React.ReactElement {
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow hover role="checkbox" tabIndex={-1}>
-                {/* <TableCell align="center" style={{ width: "20%" }}>
-                  <Typography style={{ fontWeight: "bold", color: "black" }}>Id&nbsp;</Typography>
-                </TableCell> */}
                 <TableCell align="center" style={{ width: "30%" }}>
-                  <Typography style={{ fontWeight: "bold", color: "black" }}>Modelo&nbsp;</Typography>
+                  <Typography style={{ fontWeight: "bold", color: "black" }}>Nome&nbsp;</Typography>
                 </TableCell>
                 <TableCell align="center" style={{ width: "30%" }}>
                   <Typography style={{ fontWeight: "bold", color: "black" }}>Marca&nbsp;</Typography>
@@ -69,32 +62,6 @@ export default function TabelasModelosView(): React.ReactElement {
             <TableBody>
               {stateReducer.modelos?.map((modelo, index) => (
                 <TableRow key={index}>
-                  {/* 
-                  <TableCell align="center" style={{
-                    width: "5%",
-                  }}>
-                    <div style={{
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: " center",
-                    }}>
-                      <Box
-                        style={{
-                          backgroundColor: "#0195ff",
-                          color: "white",
-                          width: "30px",
-                          height: "30px",
-                          alignSelf: "center",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: " center",
-                          borderRadius: "20%",
-                        }}>
-                        {modelo.id}
-                      </Box>
-                    </div>
-                  </TableCell> */}
                   <TableCell align="center" style={{ width: "25%" }}>
                     {modelo.modelo}
                   </TableCell>
@@ -103,26 +70,21 @@ export default function TabelasModelosView(): React.ReactElement {
                   </TableCell>
                   <TableCell align="center">
                     <div style={{ display: "flex", alignItems: "center", justifyContent: " center", gap: "10px" }}>
-                      {/* <Dialog
-                        action={"Alterar"}
+                      <Dialog
+                        action={"AlterarModelo"}
                         id={modelo.id}
                         modelos={stateReducer.modelos}
-                      /> */}
-
+                      />
                       <Button variant="contained" style={{ backgroundColor: "#c82333", color: "white" }}
-                      // onClick={() => {
-                      //   deleteModelos(modelo.id);
-                      // }}
+                        onClick={() => {
+                          deleteModelo(modelo.id);
+                        }}
                       >
                         <DeleteForeverIcon
                         />
                         Deletar
                       </Button>
-                      {/* <InlineConfirmButton className="btn btn-default" textValues={textValues} showTimer isExecuting={isExecuting} onClick={handleClick}>
-                        <i className={confirmIconClass}></i>
-                      </InlineConfirmButton> */}
                     </div>
-
                   </TableCell>
                 </TableRow>
               ))}
