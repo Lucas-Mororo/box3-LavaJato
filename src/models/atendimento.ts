@@ -1,6 +1,6 @@
 export interface Atendimentos {
-  dataI: string;
-  dataF: string;
+  dataI: Date | string;
+  dataF?: string;
   cliente: string;
   telefone: string;
   marca: string;
@@ -13,13 +13,8 @@ export interface Atendimentos {
   bairro: string;
   cidade: string;
   estado: string;
-  servicos: [
-    {
-      servico: string;
-      valor: string;
-      id: number;
-    }
-  ];
+  servicos?: Array<any>;
+  valor: number;
   id: number;
   state: boolean;
 }

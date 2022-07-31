@@ -64,9 +64,10 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 					{
 						servico: "Cristalização de vidros",
 						valor: "50,00",
-						id: 0,
+						id: 1,
 					},
 				],
+				valor: 0,
 				id: 1,
 				state: true,
 			},
@@ -95,9 +96,10 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 							{
 								servico: "Cristalização de vidros",
 								valor: "50,00",
-								id: 0,
+								id: 1,
 							},
 						],
+						valor: 0,
 						id: 1,
 						state: true,
 					},

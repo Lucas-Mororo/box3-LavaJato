@@ -32,11 +32,11 @@ export default function TabelasMarcasView(): React.ReactElement {
                     margin: "10px",
                 }}
             >
-                <img
+                {/* <img
                     src={MyImage}
                     alt="logo"
                     style={{ width: "10vw", height: "8vh" }}
-                />
+                /> */}
                 <div
                     style={{
                         display: "flex",
@@ -45,12 +45,12 @@ export default function TabelasMarcasView(): React.ReactElement {
                         alignItems: "center",
                         padding: "10px",
                         margin: "15px",
-                        border: "#0195ff solid",
+                        // border: "#0195ff solid",
                         borderRadius: "15px",
                     }}
                 >
                     <Box>
-                        <Typography variant="h5" component="h6">
+                        <Typography variant="h4" component="h6">
                             Listagem de Marcas
                         </Typography>
                     </Box>

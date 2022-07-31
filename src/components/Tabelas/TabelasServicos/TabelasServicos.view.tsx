@@ -32,11 +32,11 @@ export default function TabelasMservicosView(): React.ReactElement {
                     margin: "10px",
                 }}
             >
-                <img
+                {/* <img
                     src={MyImage}
                     alt="logo"
                     style={{ width: "10vw", height: "8vh" }}
-                />
+                /> */}
                 <div
                     style={{
                         display: "flex",
@@ -45,13 +45,13 @@ export default function TabelasMservicosView(): React.ReactElement {
                         alignItems: "center",
                         padding: "10px",
                         margin: "15px",
-                        border: "#0195ff solid",
+                        // border: "#0195ff solid",
                         borderRadius: "15px",
                     }}
                 >
                     <Box>
-                        <Typography variant="h5" component="h6">
-                            Listagem de Mservicos
+                        <Typography variant="h4" component="h6">
+                            Listagem de Servicos
                         </Typography>
                     </Box>
                     <div
@@ -74,80 +74,82 @@ export default function TabelasMservicosView(): React.ReactElement {
                     </div>
                 </div>
             </div>
-            <Paper>
-                <TableContainer>
-                    <Table stickyHeader aria-label="sticky table">
-                        <TableHead>
-                            <TableRow hover role="checkbox" tabIndex={-1}>
-                                <TableCell align="center" style={{ width: "35%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Serviço&nbsp;
-                                    </Typography>
-                                </TableCell>
-                                <TableCell align="center" style={{ width: "35%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Descrição&nbsp;
-                                    </Typography>
-                                </TableCell>
-                                <TableCell align="center" style={{ width: "15%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Valor&nbsp;
-                                    </Typography>
-                                </TableCell>
-                                <TableCell align="center" style={{ width: "20%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                        Ações&nbsp;
-                                    </Typography>
-                                </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {stateReducerServico.servicos?.map((servico, index) => (
-                                <TableRow key={index}>
-
-                                    <TableCell align="center" style={{ width: "25%" }}>
-                                        {servico.servico}
+            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+                <Paper style={{ width: "70%" }}>
+                    <TableContainer>
+                        <Table stickyHeader aria-label="sticky table">
+                            <TableHead>
+                                <TableRow hover role="checkbox" tabIndex={-1}>
+                                    <TableCell align="center" style={{ width: "35%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Serviço&nbsp;
+                                        </Typography>
                                     </TableCell>
-                                    <TableCell align="center" style={{ width: "25%" }}>
-                                        {servico.descricao}
+                                    <TableCell align="center" style={{ width: "35%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Descrição&nbsp;
+                                        </Typography>
                                     </TableCell>
-                                    <TableCell align="center" style={{ width: "25%" }}>
-                                        {servico.valor}
+                                    <TableCell align="center" style={{ width: "15%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Valor&nbsp;
+                                        </Typography>
                                     </TableCell>
-
-                                    <TableCell align="center">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: " center",
-                                                gap: "10px",
-                                            }}
-                                        >
-                                            <Dialog
-                                                action={"AlterarServico"}
-                                                id={servico.id}
-                                                servicos={stateReducerServico.servicos}
-                                            />
-
-                                            <Button
-                                                variant="contained"
-                                                style={{ backgroundColor: "#c82333", color: "white" }}
-                                                onClick={() => {
-                                                    deleteServico(servico.id);
-                                                }}
-                                            >
-                                                <DeleteForeverIcon />
-                                                Deletar
-                                            </Button>
-                                        </div>
+                                    <TableCell align="center" style={{ width: "20%" }}>
+                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
+                                            Ações&nbsp;
+                                        </Typography>
                                     </TableCell>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Paper>
+                            </TableHead>
+                            <TableBody>
+                                {stateReducerServico.servicos?.map((servico, index) => (
+                                    <TableRow key={index}>
+
+                                        <TableCell align="center" style={{ width: "25%" }}>
+                                            {servico.servico}
+                                        </TableCell>
+                                        <TableCell align="center" style={{ width: "25%" }}>
+                                            {servico.descricao}
+                                        </TableCell>
+                                        <TableCell align="center" style={{ width: "25%" }}>
+                                            {servico.valor}
+                                        </TableCell>
+
+                                        <TableCell align="center">
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: " center",
+                                                    gap: "10px",
+                                                }}
+                                            >
+                                                <Dialog
+                                                    action={"AlterarServico"}
+                                                    id={servico.id}
+                                                    servicos={stateReducerServico.servicos}
+                                                />
+
+                                                <Button
+                                                    variant="contained"
+                                                    style={{ backgroundColor: "#c82333", color: "white" }}
+                                                    onClick={() => {
+                                                        deleteServico(servico.id);
+                                                    }}
+                                                >
+                                                    <DeleteForeverIcon />
+                                                    Deletar
+                                                </Button>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Paper>
+            </div>
         </>
     );
 }

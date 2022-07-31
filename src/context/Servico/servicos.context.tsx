@@ -23,7 +23,7 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 	const [stateReducerServico, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteServico(id: number) {
-		if (window.confirm("Deseja deletar esta mservico?")) {
+		if (window.confirm("Deseja deletar esta servico?")) {
 			Notify("Evento deletado com sucesso!");
 			dispatch({
 				type: "DELETE",
@@ -52,37 +52,37 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 			{
                 servico: "Cristalização de vidros",
                 descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
-                valor: "50,00",
+                valor: 50.00,
                 id: 1,
             },
 			{
                 servico: "Higienização de ar-condicionado",
                 descricao: "Limpeza do ar condicionado do veículo",
-                valor: "22,50",
+                valor: 22.50,
                 id: 2,
             },
 			{
                 servico: "Lavagem completa",
                 descricao: "Lavar o carro com água e sabão, lavar rodas, lavar motor e passar cera na hora da secagem.",
-                valor: "120,00",
+                valor: 120.00,
                 id: 3,
             },
 			{
                 servico: "Lavagem simples",
                 descricao: "Lavar o carro com água e sabão, não lavar rodas, não lavar motor, não passar cera na hora da secagem.",
-                valor: "40,00",
+                valor: 40.00,
                 id: 4,
             },
 			{
                 servico: "Limpeza técnica de motor",
                 descricao: "Limpeza do motor.",
-                valor: "120,00",
+                valor: 120.00,
                 id: 5,
             },
 			{
                 servico: "Polimento de faróis",
                 descricao: "Polir os faróis.",
-                valor: "30,00",
+                valor: 30.00,
                 id: 6,
             },
 		])
@@ -94,37 +94,37 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 					{
 						servico: "Cristalização de vidros",
 						descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
-						valor: "50,00",
+						valor: 50.00,
 						id: 1,
 					},
 					{
 						servico: "Higienização de ar-condicionado",
 						descricao: "Limpeza do ar condicionado do veículo",
-						valor: "22,50",
+						valor: 22.50,
 						id: 2,
 					},
 					{
 						servico: "Lavagem completa",
 						descricao: "Lavar o carro com água e sabão, lavar rodas, lavar motor e passar cera na hora da secagem.",
-						valor: "120,00",
+						valor: 120.00,
 						id: 3,
 					},
 					{
 						servico: "Lavagem simples",
 						descricao: "Lavar o carro com água e sabão, não lavar rodas, não lavar motor, não passar cera na hora da secagem.",
-						valor: "40,00",
+						valor: 40.00,
 						id: 4,
 					},
 					{
 						servico: "Limpeza técnica de motor",
 						descricao: "Limpeza do motor.",
-						valor: "120,00",
+						valor: 120.00,
 						id: 5,
 					},
 					{
 						servico: "Polimento de faróis",
 						descricao: "Polir os faróis.",
-						valor: "30,00",
+						valor: 30.00,
 						id: 6,
 					},
 				]

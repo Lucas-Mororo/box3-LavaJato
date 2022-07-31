@@ -8,6 +8,7 @@ import { ClientesProvider } from "./context/Usuarios/clientes.context";
 import { ModelossProvider } from "./context/Modelo/modelos.context";
 import { ServicossProvider } from "./context/Servico/servicos.context";
 import { AtendimentosProvider } from "./context/Atendimento/atendimento.context";
+import { ServicosAtendimentossProvider } from "./context/ServicoAtendimento/servicosAtendimentos.context";
 
 function App(): React.ReactElement {
   return (
@@ -18,9 +19,11 @@ function App(): React.ReactElement {
             <ModelossProvider>
               <ServicossProvider>
                 <AtendimentosProvider>
-                  <Toaster position="top-right" reverseOrder={false} />
-                  <Navbar />
-                  <PublicRouter />
+                  <ServicosAtendimentossProvider>
+                    <Toaster position="top-right" reverseOrder={false} />
+                    <Navbar />
+                    <PublicRouter />
+                  </ServicosAtendimentossProvider>
                 </AtendimentosProvider>
               </ServicossProvider>
             </ModelossProvider>

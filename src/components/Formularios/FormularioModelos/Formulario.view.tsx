@@ -15,7 +15,6 @@ export default function FormularioView(props: { action: string, id: number, mode
     const { stateReducerMarca } = useMarcasContext();
 
     async function action(data: Modelos) {
-        console.log(data);
         if (props.action === "CadastroModelo") {
             props.setOpen(false);
             addModelo(data);
@@ -55,7 +54,6 @@ export default function FormularioView(props: { action: string, id: number, mode
                 } else {
                     setDisabled(true);
                     const id = props.modelos.length+1;
-                    console.log(props.modelos.length);
                     action({
                         modelo: data.modelo,
                         marca: data.marca,

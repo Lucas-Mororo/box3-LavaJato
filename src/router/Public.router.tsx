@@ -5,6 +5,7 @@ import TableClientes from '../pages/TableClientes';
 import TableMarcas from '../pages/TableMarcas';
 import TableModelos from '../pages/TableModelos';
 import TableServicos from '../pages/TableServicos';
+import TableServicosAtendimentos from '../pages/TableServicosAtendimentos';
 
 const PublicRouter = (): React.ReactElement => {
 
@@ -16,6 +17,7 @@ const PublicRouter = (): React.ReactElement => {
             <Route path="/LavaJato/Clientes" element={<TableClientes />} />
             <Route path="/LavaJato/Servicos" element={<TableServicos />} />
             <Route path="/LavaJato/Atendimentos" element={<TableAtendimentos />} />
+            <Route path="/LavaJato/Atendimentos/Servicos" element={<TableServicosAtendimentos />} />
         </Routes>
     );
 }

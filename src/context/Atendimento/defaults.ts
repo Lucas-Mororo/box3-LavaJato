@@ -22,12 +22,13 @@ export const INI_VALUES: AtendimentoContextType = {
             estado: "",
             servicos: [
                 {
-                    servico: "Cristalização de vidros",
-                    valor: "50,00",
-                    id: 1,
+                    servico: "",
+                    valor: "",
+                    id: 0,
                 },
             ],
-            id: 1,
+            valor: 0,
+            id: 0,
             state: true,
         },
     ],
@@ -51,11 +52,12 @@ export const INI_VALUES: AtendimentoContextType = {
                 estado: "",
                 servicos: [
                     {
-                        servico: "Cristalização de vidros",
-                        valor: "50,00",
-                        id: 1,
+                        servico: "",
+                        valor: "",
+                        id: 0,
                     },
                 ],
+                valor: 0,
                 id: 1,
                 state: true,
             },
