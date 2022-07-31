@@ -8,7 +8,6 @@ import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelaAtendimentosView(): React.ReactElement {
   const { stateReducerAtendimentos, deleteAtendimento } = useAtendimentoContext();
-  console.log(stateReducerAtendimentos);
 
   return (
     <>

@@ -14,9 +14,8 @@ export const AtendimentosContext = React.createContext<AtendimentoContextType>(I
 
 export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 	const [atendimentos, setAtendimentos] = React.useState<Atendimentos[]>([]);
-	// const [verification, setVerification] = React.useState<boolean>(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const initialState = { atendimento: [] };
+	const initialState = { atendimentos: [] };
 	const [stateReducerAtendimentos, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteAtendimento(id: number) {
@@ -64,7 +63,6 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 				servicos: [
 					{
 						servico: "Cristalização de vidros",
-						descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
 						valor: "50,00",
 						id: 0,
 					},
@@ -96,7 +94,6 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 						servicos: [
 							{
 								servico: "Cristalização de vidros",
-								descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
 								valor: "50,00",
 								id: 0,
 							},
