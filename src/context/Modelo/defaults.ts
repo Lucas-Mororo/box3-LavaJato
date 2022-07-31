@@ -12,7 +12,7 @@ export const INI_VALUES: ModelosContextType = {
         },
     ],
     setModelos: () => { },
-    stateReducer: {
+    stateReducerModelo: {
         modelos: [
             {
                 modelo: "",

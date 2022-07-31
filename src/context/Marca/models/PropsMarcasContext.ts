@@ -6,7 +6,7 @@ export type MarcasContextType = {
 	setMarcas: React.Dispatch<React.SetStateAction<Marcas[]>>;
 	// verification: boolean;
 	// setVerification: React.Dispatch<React.SetStateAction<boolean>>;
-	stateReducer: MarcasReducer;
+	stateReducerMarca: MarcasReducer;
 	deleteMarca: (id: number) => void;
 	updateMarca: (updatedMarca: any) => void;
 	addMarca: (addMarca: any) => void;

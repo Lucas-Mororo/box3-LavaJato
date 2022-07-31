@@ -17,7 +17,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 	// const [verification, setVerification] = React.useState<boolean>(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initialState = { atendimento: [] };
-	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
+	const [stateReducerAtendimentos, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteAtendimento(id: number) {
 		if (window.confirm("Deseja deletar este Atendimento?")) {
@@ -55,7 +55,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 				modelo: "Tracker",
 				placa: "HBI423",
 				CEP: "62250000",
-				logadouro: "Manoel Dias",
+				logradouro: "Manoel Dias",
 				numero: "956",
 				complemento: "AP",
 				bairro: "Reino",
@@ -69,7 +69,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 						id: 0,
 					},
 				],
-				id: 0,
+				id: 1,
 				state: true,
 			},
 		])
@@ -87,7 +87,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 						modelo: "Tracker",
 						placa: "HBI423",
 						CEP: "62250000",
-						logadouro: "Manoel Dias",
+						logradouro: "Manoel Dias",
 						numero: "956",
 						complemento: "AP",
 						bairro: "Reino",
@@ -101,7 +101,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 								id: 0,
 							},
 						],
-						id: 0,
+						id: 1,
 						state: true,
 					},
 				]
@@ -114,7 +114,7 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 			value={{
 				atendimentos,
 				setAtendimentos,
-				stateReducer,
+				stateReducerAtendimentos,
 				deleteAtendimento,
 				updateAtendimento,
 				addAtendimento,

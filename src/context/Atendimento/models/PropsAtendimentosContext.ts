@@ -6,7 +6,7 @@ export type AtendimentoContextType = {
 	setAtendimentos: React.Dispatch<React.SetStateAction<Atendimentos[]>>;
 	// verification: boolean;
 	// setVerification: React.Dispatch<React.SetStateAction<boolean>>;
-	stateReducer: AtendimentosReducer;
+	stateReducerAtendimentos: AtendimentosReducer;
 	deleteAtendimento: (id: number) => void;
 	updateAtendimento: (updatedServico: any) => void;
 	addAtendimento: (addServico: any) => void;

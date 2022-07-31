@@ -20,7 +20,7 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 	// const [verification, setVerification] = React.useState<boolean>(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initialState = { servicos: [] };
-	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
+	const [stateReducerServico, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteServico(id: number) {
 		if (window.confirm("Deseja deletar esta mservico?")) {
@@ -53,37 +53,37 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
                 servico: "Cristalização de vidros",
                 descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
                 valor: "50,00",
-                id: 0,
+                id: 1,
             },
 			{
                 servico: "Higienização de ar-condicionado",
                 descricao: "Limpeza do ar condicionado do veículo",
                 valor: "22,50",
-                id: 1,
+                id: 2,
             },
 			{
                 servico: "Lavagem completa",
                 descricao: "Lavar o carro com água e sabão, lavar rodas, lavar motor e passar cera na hora da secagem.",
                 valor: "120,00",
-                id: 2,
+                id: 3,
             },
 			{
                 servico: "Lavagem simples",
                 descricao: "Lavar o carro com água e sabão, não lavar rodas, não lavar motor, não passar cera na hora da secagem.",
                 valor: "40,00",
-                id: 3,
+                id: 4,
             },
 			{
                 servico: "Limpeza técnica de motor",
                 descricao: "Limpeza do motor.",
                 valor: "120,00",
-                id: 4,
+                id: 5,
             },
 			{
                 servico: "Polimento de faróis",
                 descricao: "Polir os faróis.",
                 valor: "30,00",
-                id: 5,
+                id: 6,
             },
 		])
 		dispatch({
@@ -95,37 +95,37 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 						servico: "Cristalização de vidros",
 						descricao: "Cristaliza os vidros do seu veículo para deixalos brilhantes",
 						valor: "50,00",
-						id: 0,
+						id: 1,
 					},
 					{
 						servico: "Higienização de ar-condicionado",
 						descricao: "Limpeza do ar condicionado do veículo",
 						valor: "22,50",
-						id: 1,
+						id: 2,
 					},
 					{
 						servico: "Lavagem completa",
 						descricao: "Lavar o carro com água e sabão, lavar rodas, lavar motor e passar cera na hora da secagem.",
 						valor: "120,00",
-						id: 2,
+						id: 3,
 					},
 					{
 						servico: "Lavagem simples",
 						descricao: "Lavar o carro com água e sabão, não lavar rodas, não lavar motor, não passar cera na hora da secagem.",
 						valor: "40,00",
-						id: 3,
+						id: 4,
 					},
 					{
 						servico: "Limpeza técnica de motor",
 						descricao: "Limpeza do motor.",
 						valor: "120,00",
-						id: 4,
+						id: 5,
 					},
 					{
 						servico: "Polimento de faróis",
 						descricao: "Polir os faróis.",
 						valor: "30,00",
-						id: 5,
+						id: 6,
 					},
 				]
 			}
@@ -137,7 +137,7 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 			value={{
 				servicos,
 				setServicos,
-				stateReducer,
+				stateReducerServico,
 				deleteServico,
 				updateServico,
 				addServico,

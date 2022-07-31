@@ -12,7 +12,7 @@ export default function FormularioView(props: { action: string, id: number, mode
     const [modelos, setModelos] = React.useState({} as Modelos);
     const [disabled, setDisabled] = React.useState(false);
     const { addModelo, updateModelo } = useModelosContext();
-    const { stateReducer } = useMarcasContext();
+    const { stateReducerMarca } = useMarcasContext();
 
     async function action(data: Modelos) {
         console.log(data);
@@ -54,7 +54,7 @@ export default function FormularioView(props: { action: string, id: number, mode
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.modelos.length;
+                    const id = props.modelos.length+1;
                     console.log(props.modelos.length);
                     action({
                         modelo: data.modelo,
@@ -115,7 +115,7 @@ export default function FormularioView(props: { action: string, id: number, mode
                         >
                             <MenuItem value="">Selecione o status do usuário</MenuItem>
                             {
-                                stateReducer.marcas.map((marca, index) => (
+                                stateReducerMarca.marcas.map((marca, index) => (
                                     <MenuItem value={marca.name} key={index}>{marca.name}</MenuItem>
                                 ))
                             }

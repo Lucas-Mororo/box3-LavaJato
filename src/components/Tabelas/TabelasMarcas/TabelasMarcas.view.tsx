@@ -19,7 +19,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelasMarcasView(): React.ReactElement {
-    const { stateReducer, deleteMarca } = useMarcasContext();
+    const { stateReducerMarca, deleteMarca } = useMarcasContext();
 
     return (
         <>
@@ -70,7 +70,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                             <SearchIcon />
                             Buscar
                         </Button>
-                        <Dialog action={"CadastroMarca"} id={0} marcas={stateReducer.marcas} />
+                        <Dialog action={"CadastroMarca"} id={0} marcas={stateReducerMarca.marcas} />
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {stateReducer.marcas?.map((marca, index) => (
+                                {stateReducerMarca.marcas?.map((marca, index) => (
                                     <TableRow key={index}>
                                         {/* 
                                     <TableCell align="center" style={{
@@ -140,7 +140,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                                                 <Dialog
                                                     action={"AlterarMarca"}
                                                     id={marca.id}
-                                                    marcas={stateReducer.marcas}
+                                                    marcas={stateReducerMarca.marcas}
                                                 />
 
                                                 <Button

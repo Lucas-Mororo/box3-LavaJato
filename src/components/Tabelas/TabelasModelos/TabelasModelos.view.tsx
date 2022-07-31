@@ -7,7 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelasModelosView(): React.ReactElement {
-  const { stateReducer, deleteModelo } = useModelosContext();
+  const { stateReducerModelo, deleteModelo } = useModelosContext();
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function TabelasModelosView(): React.ReactElement {
               <SearchIcon />
               Buscar
             </Button>
-            <Dialog action={"CadastroModelo"} id={0} modelos={stateReducer.modelos} />
+            <Dialog action={"CadastroModelo"} id={0} modelos={stateReducerModelo.modelos} />
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ export default function TabelasModelosView(): React.ReactElement {
               </TableRow>
             </TableHead>
             <TableBody>
-              {stateReducer.modelos?.map((modelo, index) => (
+              {stateReducerModelo.modelos?.map((modelo, index) => (
                 <TableRow key={index}>
                   <TableCell align="center" style={{ width: "25%" }}>
                     {modelo.modelo}
@@ -73,7 +73,7 @@ export default function TabelasModelosView(): React.ReactElement {
                       <Dialog
                         action={"AlterarModelo"}
                         id={modelo.id}
-                        modelos={stateReducer.modelos}
+                        modelos={stateReducerModelo.modelos}
                       />
                       <Button variant="contained" style={{ backgroundColor: "#c82333", color: "white" }}
                         onClick={() => {

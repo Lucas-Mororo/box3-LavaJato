@@ -62,7 +62,7 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 				bairro: "Reino",
 				cidade: "Ipu",
 				estado: "CE",
-				id: 0,
+				id: 1,
 			},
 			{
 				name: "LucasMMMMMMMMMMMMMMMMM",
@@ -77,7 +77,7 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 				bairro: "Reino",
 				cidade: "Ipu",
 				estado: "CE",
-				id: 1,
+				id: 2,
 			},
 		])
 		dispatch({
@@ -98,7 +98,7 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 						bairro: "Reino",
 						cidade: "Ipu",
 						estado: "CE",
-						id: 0,
+						id: 1,
 					},
 					{
 						name: "LucasMMMMMMMMMMMMMMMMM",
@@ -113,7 +113,7 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 						bairro: "Reino",
 						cidade: "Ipu",
 						estado: "CE",
-						id: 1,
+						id: 2,
 					},
 				]
 			}

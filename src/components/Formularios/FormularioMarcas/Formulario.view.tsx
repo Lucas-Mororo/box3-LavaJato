@@ -50,7 +50,7 @@ export default function FormularioView(props: { action: string, id: number, marc
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.marcas.length;
+                    const id = props.marcas.length+1;
                     action({
                         name: data.name,
                         id: id,

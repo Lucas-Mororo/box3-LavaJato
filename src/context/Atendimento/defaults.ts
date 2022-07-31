@@ -14,7 +14,7 @@ export const INI_VALUES: AtendimentoContextType = {
             modelo: "",
             placa: "",
             CEP: "",
-            logadouro: "",
+            logradouro: "",
             numero: "",
             complemento: "",
             bairro: "",
@@ -33,7 +33,7 @@ export const INI_VALUES: AtendimentoContextType = {
         },
     ],
     setAtendimentos: () => { },
-    stateReducer: {
+    stateReducerAtendimentos: {
         atendimentos: [
             {
                 dataI: "",
@@ -44,7 +44,7 @@ export const INI_VALUES: AtendimentoContextType = {
                 modelo: "",
                 placa: "",
                 CEP: "",
-                logadouro: "",
+                logradouro: "",
                 numero: "",
                 complemento: "",
                 bairro: "",

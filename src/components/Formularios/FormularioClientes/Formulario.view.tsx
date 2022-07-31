@@ -90,6 +90,7 @@ export default function FormularioView(props: { action: string, id: number, clie
             .replace(/(-\d{3})\d+?$/, '$1')
     }
 
+
     return (
         <form
             onSubmit={handleSubmit((data) => {
@@ -118,7 +119,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.clientes.length;
+                    const id = props.clientes.length+1;
                     action({
                         name: data.name,
                         email: data.email,
@@ -334,10 +335,8 @@ export default function FormularioView(props: { action: string, id: number, clie
                             style={{
                                 width: "100%",
                             }}
-                            value={cep}
                             {...register("CEP", { required: true })}
                             onChange={(e) => {
-
                                 if (e.target.value.includes("-")) {
                                     if (e.target.value.split("-")[1].length === 3) {
                                         setBuscarCep(!buscarCep);
@@ -369,7 +368,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                             <TextField
                                 style={{ width: "100%", margin: "0px" }}
                                 // className={classes.textField}
-                                label="Status do Usuário*"
+                                label="Cidade*"
                                 variant='outlined'
                                 fullWidth
                                 margin="normal"
@@ -459,8 +458,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                             }
                         />
                     </FormControl>
-
-
 
                 </div>
 

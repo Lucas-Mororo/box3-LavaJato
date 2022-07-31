@@ -18,7 +18,7 @@ export const ModelosContext = React.createContext<ModelosContextType>(INI_VALUES
 export const ModelossProvider = ({ children }: ChildrenProps) => {
 	const [modelos, setModelos] = React.useState<Modelos[]>([]);
 	const initialState = { modelos: [] };
-	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
+	const [stateReducerModelo, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteModelo(id: number) {
 		if (window.confirm("Deseja deletar esta modelo?")) {
@@ -50,27 +50,27 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 			{
 				modelo: "Camaro",
 				marca: "Chevrolet",
-				id: 0,
+				id: 1,
 			},
 			{
 				modelo: "Cronos",
 				marca: "Fiat",
-				id: 1,
+				id: 2,
 			},
 			{
 				modelo: "Onix",
 				marca: "Chevrolet",
-				id: 2,
+				id: 3,
 			},
 			{
 				modelo: "Tracker",
 				marca: "Chevrolet",
-				id: 3,
+				id: 4,
 			},
 			{
 				modelo: "Uno",
 				marca: "Fiat",
-				id: 4,
+				id: 5,
 			},
 		])
 		dispatch({
@@ -81,27 +81,27 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 					{
 						modelo: "Camaro",
 						marca: "Chevrolet",
-						id: 0,
+						id: 1,
 					},
 					{
 						modelo: "Cronos",
 						marca: "Fiat",
-						id: 1,
+						id: 2,
 					},
 					{
 						modelo: "Onix",
 						marca: "Chevrolet",
-						id: 2,
+						id: 3,
 					},
 					{
 						modelo: "Tracker",
 						marca: "Chevrolet",
-						id: 3,
+						id: 4,
 					},
 					{
 						modelo: "Uno",
 						marca: "Fiat",
-						id: 4,
+						id: 5,
 					},
 				]
 			}
@@ -113,7 +113,7 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 			value={{
 				modelos,
 				setModelos,
-				stateReducer,
+				stateReducerModelo,
 				deleteModelo,
 				updateModelo,
 				addModelo,

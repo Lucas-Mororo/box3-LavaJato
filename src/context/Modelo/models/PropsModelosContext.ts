@@ -6,7 +6,7 @@ export type ModelosContextType = {
 	setModelos: React.Dispatch<React.SetStateAction<Modelos[]>>;
 	// verification: boolean;
 	// setVerification: React.Dispatch<React.SetStateAction<boolean>>;
-	stateReducer: ModelosReducer;
+	stateReducerModelo: ModelosReducer;
 	deleteModelo: (id: number) => void;
 	updateModelo: (updatedModelo: any) => void;
 	addModelo: (addModelo: any) => void;

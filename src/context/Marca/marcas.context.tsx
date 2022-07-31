@@ -17,7 +17,7 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 	// const [verification, setVerification] = React.useState<boolean>(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initialState = { marcas: [] };
-	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
+	const [stateReducerMarca, dispatch] = React.useReducer(appReducer, initialState);
 
 	function deleteMarca(id: number) {
 		if (window.confirm("Deseja deletar esta marca?")) {
@@ -48,31 +48,31 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 		setMarcas([
 			{
 				name: "Chevrolet",
-				id: 0,
-			},
-			{
-				name: "Fiat",
 				id: 1,
 			},
 			{
-				name: "Ford",
+				name: "Fiat",
 				id: 2,
 			},
 			{
-				name: "Honda",
+				name: "Ford",
 				id: 3,
 			},
 			{
-				name: "Hyundai",
+				name: "Honda",
 				id: 4,
 			},
 			{
-				name: "Toyota",
+				name: "Hyundai",
 				id: 5,
 			},
 			{
-				name: "Volkswagen",
+				name: "Toyota",
 				id: 6,
+			},
+			{
+				name: "Volkswagen",
+				id: 7,
 			},
 		])
 		dispatch({
@@ -82,31 +82,31 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 				marcas: [
 					{
 						name: "Chevrolet",
-						id: 0,
-					},
-					{
-						name: "Fiat",
 						id: 1,
 					},
 					{
-						name: "Ford",
+						name: "Fiat",
 						id: 2,
 					},
 					{
-						name: "Honda",
+						name: "Ford",
 						id: 3,
 					},
 					{
-						name: "Hyundai",
+						name: "Honda",
 						id: 4,
 					},
 					{
-						name: "Toyota",
+						name: "Hyundai",
 						id: 5,
 					},
 					{
-						name: "Volkswagen",
+						name: "Toyota",
 						id: 6,
+					},
+					{
+						name: "Volkswagen",
+						id: 7,
 					},
 				]
 			}
@@ -118,7 +118,7 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 			value={{
 				marcas,
 				setMarcas,
-				stateReducer,
+				stateReducerMarca,
 				deleteMarca,
 				updateMarca,
 				addMarca,

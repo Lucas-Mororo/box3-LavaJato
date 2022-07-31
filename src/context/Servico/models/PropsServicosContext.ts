@@ -6,7 +6,7 @@ export type ServicosContextType = {
 	setServicos: React.Dispatch<React.SetStateAction<Servicos[]>>;
 	// verification: boolean;
 	// setVerification: React.Dispatch<React.SetStateAction<boolean>>;
-	stateReducer: ServicosReducer;
+	stateReducerServico: ServicosReducer;
 	deleteServico: (id: number) => void;
 	updateServico: (updatedServico: any) => void;
 	addServico: (addServico: any) => void;

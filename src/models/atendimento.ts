@@ -9,7 +9,7 @@ export interface Atendimentos {
   modelo: string,
   placa: string,
   CEP: string,
-  logadouro: string,
+  logradouro: string,
   numero: string,
   complemento: string,
   bairro: string,

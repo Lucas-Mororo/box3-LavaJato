@@ -52,7 +52,7 @@ export default function FormularioView(props: { action: string, id: number, serv
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.servicos.length;
+                    const id = props.servicos.length+1;
                     action({
                         servico: data.servico,
                         descricao: data.descricao,

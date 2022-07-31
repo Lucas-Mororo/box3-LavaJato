@@ -13,7 +13,7 @@ export const INI_VALUES: ServicosContextType = {
         },
     ],
     setServicos: () => { },
-    stateReducer: {
+    stateReducerServico: {
         servicos: [
             {
                 servico: "",

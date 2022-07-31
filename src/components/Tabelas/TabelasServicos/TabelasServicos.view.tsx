@@ -19,8 +19,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelasMservicosView(): React.ReactElement {
-    const { stateReducer, deleteServico } = useServicosContext();
-    console.log(stateReducer);
+    const { stateReducerServico, deleteServico } = useServicosContext();
 
     return (
         <>
@@ -71,7 +70,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                             <SearchIcon />
                             Buscar
                         </Button>
-                        <Dialog action={"CadastroServico"} id={0} servicos={stateReducer.servicos} />
+                        <Dialog action={"CadastroServico"} id={0} servicos={stateReducerServico.servicos} />
                     </div>
                 </div>
             </div>
@@ -103,7 +102,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {stateReducer.servicos?.map((servico, index) => (
+                            {stateReducerServico.servicos?.map((servico, index) => (
                                 <TableRow key={index}>
 
                                     <TableCell align="center" style={{ width: "25%" }}>
@@ -128,7 +127,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                                             <Dialog
                                                 action={"AlterarServico"}
                                                 id={servico.id}
-                                                servicos={stateReducer.servicos}
+                                                servicos={stateReducerServico.servicos}
                                             />
 
                                             <Button

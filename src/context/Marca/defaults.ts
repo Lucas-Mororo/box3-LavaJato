@@ -11,7 +11,7 @@ export const INI_VALUES: MarcasContextType = {
         },
     ],
     setMarcas: () => { },
-    stateReducer: {
+    stateReducerMarca: {
         marcas: [
             {
                 name: "",

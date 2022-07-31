@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useAtendimentoContext } from "../../../context/Atendimento/hooks/useAtendimentos";
-import Dialog from "../../Dialogs/DialogCliente/index";
+import Dialog from "../../Dialogs/DialogAtendimentos/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
 
 export default function TabelaAtendimentosView(): React.ReactElement {
-  const { stateReducer, deleteAtendimento } = useAtendimentoContext();
-  console.log(stateReducer);
+  const { stateReducerAtendimentos, deleteAtendimento } = useAtendimentoContext();
+  console.log(stateReducerAtendimentos);
 
   return (
     <>
@@ -59,11 +59,11 @@ export default function TabelaAtendimentosView(): React.ReactElement {
               <SearchIcon />
               Buscar
             </Button>
-            {/* <Dialog
+            <Dialog
               action={"CadastroAtendimento"}
               id={0}
-              deleteAtendimento={stateReducer.atendimentos}
-            /> */}
+              atendimentos={stateReducerAtendimentos.atendimentos}
+            />
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function TabelaAtendimentosView(): React.ReactElement {
               </TableRow>
             </TableHead>
             <TableBody>
-              {stateReducer.atendimentos?.map((atendimento, index) => (
+              {stateReducerAtendimentos.atendimentos?.map((atendimento, index) => (
                 <TableRow key={index}>
                   <TableCell
                     align="center"
@@ -160,12 +160,11 @@ export default function TabelaAtendimentosView(): React.ReactElement {
                         gap: "10px",
                       }}
                     >
-                      {/* <Dialog
+                      <Dialog
                         action={"AlterarAtendimento"}
                         id={atendimento.id}
-                        atendimento={stateReducer.atendimentos}
-                      /> */}
-
+                        atendimentos={stateReducerAtendimentos.atendimentos}
+                      />
                       <Button
                         variant="contained"
                         style={{ backgroundColor: "#c82333", color: "white" }}
