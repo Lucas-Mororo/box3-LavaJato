@@ -17,9 +17,23 @@ import Dialog from "../../Dialogs/DialogMarca/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
+import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
+import Notify from "../../../utils/Notification";
 
 export default function TabelasMarcasView(): React.ReactElement {
     const { stateReducerMarca, deleteMarca } = useMarcasContext();
+    const { stateReducerModelo } = useModelosContext();
+
+    function deleMarca(id: number, marcaName: string) {
+        const verify = stateReducerModelo.modelos.filter((modelo) => {
+            return (modelo.marca === marcaName)
+        })
+        if (verify.length > 0) {
+            Notify("A marca não pode ser deletada!", "error")
+        } else {
+            deleteMarca(id);
+        }
+    }
 
     return (
         <>
@@ -75,7 +89,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                 </div>
             </div>
             <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
-                <Paper style={{ width: "70%"}}>
+                <Paper style={{ width: "70%" }}>
                     <TableContainer>
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead>
@@ -98,32 +112,6 @@ export default function TabelasMarcasView(): React.ReactElement {
                             <TableBody>
                                 {stateReducerMarca.marcas?.map((marca, index) => (
                                     <TableRow key={index}>
-                                        {/* 
-                                    <TableCell align="center" style={{
-                                        width: "5%",
-                                    }}>
-                                        <div style={{
-                                        width: "100%",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: " center",
-                                        }}>
-                                        <Box
-                                            style={{
-                                            backgroundColor: "#0195ff",
-                                            color: "white",
-                                            width: "30px",
-                                            height: "30px",
-                                            alignSelf: "center",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: " center",
-                                            borderRadius: "20%",
-                                            }}>
-                                            {marca.id}
-                                        </Box>
-                                        </div>
-                                    </TableCell> */}
                                         <TableCell align="center" style={{ width: "25%" }}>
                                             {marca.name}
                                         </TableCell>
@@ -147,7 +135,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                                                     variant="contained"
                                                     style={{ backgroundColor: "#c82333", color: "white" }}
                                                     onClick={() => {
-                                                        deleteMarca(marca.id);
+                                                        deleMarca(marca.id, marca.name);
                                                     }}
                                                 >
                                                     <DeleteForeverIcon />

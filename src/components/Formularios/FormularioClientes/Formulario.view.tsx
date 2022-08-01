@@ -7,6 +7,7 @@ import { Clientes } from "../../../models/clientes";
 import Notify from "../../../utils/Notification";
 import axios, { AxiosResponse } from "axios";
 import { EstadoBrasileiro } from "../../../models/estadoBrasileiro";
+import { CNPJ, CPF } from "../../../utils/masks";
 
 export default function FormularioView(props: { action: string, id: number, clientes: Clientes[], setOpen: any }): React.ReactElement {
     const { register, handleSubmit, control, getValues, setValue, reset, formState: { errors }, } = useForm({ mode: "onSubmit" });
@@ -58,23 +59,7 @@ export default function FormularioView(props: { action: string, id: number, clie
         }
     }, [props.action, props.id, props.clientes, reset, buscarCep, getValues, reset]);
 
-    function CNPJ(value: string) {
-        return value
-            .replace(/\D+/g, '')
-            .replace(/(\d{2})(\d)/, '$1.$2')
-            .replace(/(\d{3})(\d)/, '$1.$2')
-            .replace(/(\d{3})(\d)/, '$1/$2')
-            .replace(/(\d{4})(\d)/, '$1-$2')
-            .replace(/(-\d{2})\d+?$/, '$1')
-    }
-
-    function CPF(value: string) {
-        return value
-            .replace(/\D+/g, "")
-            .replace(/(\d{3})(\d)/, "$1.$2")
-            .replace(/(\d{3})(\d)/, "$1.$2")
-            .replace(/(\d{3})(\d{1,2})$/, "$1-$2")
-    }
+   
 
     function phone(value: string) {
         return value

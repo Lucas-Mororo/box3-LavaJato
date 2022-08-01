@@ -1,26 +1,29 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  Box,
-  Button,
-  IconButton,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@material-ui/core";
+import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useClientesContext } from "../../../context/Usuarios/hooks/useClientes";
+import { useAtendimentoContext } from "../../../context/Atendimento/hooks/useAtendimentos";
 import Dialog from "../../Dialogs/DialogCliente/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 // import InlineConfirmButton from "react-inline-confirm";
 import MyImage from "../../../img/logo_Box3.png";
+import Notify from "../../../utils/Notification";
 
 export default function TabelaClientesView(): React.ReactElement {
   const { stateReducer, deleteClient } = useClientesContext();
+  const { stateReducerAtendimentos } = useAtendimentoContext();
+
+  function deleCliente(id: number) {
+    const verify = stateReducerAtendimentos.atendimentos.filter((atendimento) => {
+      return (atendimento.idCliente === id)
+    })
+    if (verify.length > 0) {
+      Notify("O cliente não pode ser deletado!", "error")
+    } else {
+      deleteClient(id);
+    }
+  }
+
 
   return (
     <>
@@ -174,7 +177,7 @@ export default function TabelaClientesView(): React.ReactElement {
                           variant="contained"
                           style={{ backgroundColor: "#c82333", color: "white" }}
                           onClick={() => {
-                            deleteClient(cliente.id);
+                            deleCliente(cliente.id)
                           }}
                         >
                           <DeleteForeverIcon />

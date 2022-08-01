@@ -4,25 +4,20 @@ import Formulario from "../../Formularios/FormularioAtendimentos/index";
 import { Atendimentos } from "../../../models/atendimento";
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
+import FormularioAlteracao from "../../Formularios/Alteracao/FormularioAtendimentosAlteracao";
 
 export default function DialogView(props: { action: string, id: number, atendimentos: Atendimentos[] }): React.ReactElement {
-    // const theme = useTheme();
     const [open, setOpen] = React.useState<boolean>(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const handleClickOpen = () => { setOpen(true); };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleClose = () => { setOpen(false); };
 
     return (
         <div>
             <Button variant="contained" style={{ backgroundColor: "#0195ff", color: "white" }}
                 onClick={() => {
                     handleClickOpen()
-                    // handleOpenCadastro();
                 }}
             >
                 {props.action === "CadastroAtendimento" ?
@@ -87,9 +82,9 @@ export default function DialogView(props: { action: string, id: number, atendime
                         >
                             {((props.action === "CadastroAtendimento") || (props.action === "AlterarServico"))
                                 ?
-                                <Formulario setOpen={setOpen} action={props.action} id={props.id} atendimentos={props.atendimentos} />
+                                <Formulario setOpen={setOpen} id={props.id} atendimentos={props.atendimentos} />
                                 :
-                                <></>
+                                <FormularioAlteracao setOpen={setOpen} id={props.id} atendimentos={props.atendimentos} />
                             }
                         </Box>
                     </div>

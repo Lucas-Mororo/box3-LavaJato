@@ -46,31 +46,37 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 	useEffect(() => {
 		setAtendimentos([
 			{
-				dataI: "19/07/2022",
-				dataF: "30/07/2022",
-				cliente: "Lucas",
-				telefone: "88997908018",
-				marca: "Chevrolet",
-				modelo: "Tracker",
-				placa: "HBI423",
-				CEP: "62250000",
-				logradouro: "Manoel Dias",
-				numero: "956",
-				complemento: "AP",
-				bairro: "Reino",
-				cidade: "Ipu",
+				CEP: "62010-585",
+				bairro: "Centro",
+				cidade: "Sobral",
+				cliente: "LucasMMMMMMMMMMMMMMMMM",
+				complemento: "3asd",
+				dataF: undefined,
+				dataI: "2022-08-01T18:21",
 				estado: "CE",
+				id: 1,
+				logradouro: "Rua Luiz Gonzaga Prado",
+				marca: "Chevrolet",
+				modelo: "Camaro",
+				numero: "4",
+				placa: "ASD234",
 				servicos: [
 					{
-						servico: "Cristalização de vidros",
-						valor: "50,00",
-						id: 1,
+						id: 2,
+						servico: "Higienização de ar-condicionado",
+						valor: 22.5,
 					},
+					{
+						id: 4,
+						servico: "Lavagem simples",
+						valor: 40,
+					}
 				],
-				valor: 0,
-				id: 1,
 				state: true,
-			},
+				idCliente: 2,
+				telefone: "(11)11111-1111",
+				valor: 62.5,
+			}
 		])
 		dispatch({
 			type: "INITIALIZING",
@@ -78,31 +84,37 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 				...initialState,
 				atendimentos: [
 					{
-						dataI: "19/07/2022",
-						dataF: "30/07/2022",
-						cliente: "Lucas",
-						telefone: "88997908018",
-						marca: "Chevrolet",
-						modelo: "Tracker",
-						placa: "HBI423",
-						CEP: "62250000",
-						logradouro: "Manoel Dias",
-						numero: "956",
-						complemento: "AP",
-						bairro: "Reino",
-						cidade: "Ipu",
+						CEP: "62010-585",
+						bairro: "Centro",
+						cidade: "Sobral",
+						cliente: "LucasMMMMMMMMMMMMMMMMM",
+						complemento: "3asd",
+						dataF: undefined,
+						dataI: "2022-08-01T18:21",
 						estado: "CE",
+						id: 1,
+						logradouro: "Rua Luiz Gonzaga Prado",
+						marca: "Chevrolet",
+						modelo: "Camaro",
+						numero: "4",
+						placa: "ASD234",
 						servicos: [
 							{
-								servico: "Cristalização de vidros",
-								valor: "50,00",
-								id: 1,
+								id: 2,
+								servico: "Higienização de ar-condicionado",
+								valor: 22.5,
 							},
+							{
+								id: 4,
+								servico: "Lavagem simples",
+								valor: 40,
+							}
 						],
-						valor: 0,
-						id: 1,
 						state: true,
-					},
+						idCliente: 2,
+						telefone: "(11)11111-1111",
+						valor: 62.5,
+					}
 				]
 			}
 		})

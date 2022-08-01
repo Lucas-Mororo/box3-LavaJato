@@ -1,6 +1,6 @@
 export interface Atendimentos {
-  dataI: Date | string;
-  dataF?: string;
+  dataI: Date | string | any;
+  dataF?: Date | string | any;
   cliente: string;
   telefone: string;
   marca: string;
@@ -17,6 +17,7 @@ export interface Atendimentos {
   valor: number;
   id: number;
   state: boolean;
+  idCliente: number;
 }
 
 export interface AtendimentosReducer {

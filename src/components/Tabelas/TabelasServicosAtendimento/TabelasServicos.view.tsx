@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
-import { useServicosContext } from "../../../context/Servico/hooks/useServicos";
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import Dialog from "../../Dialogs/DialogServicosAtendimento/index";
-import SearchIcon from "@material-ui/icons/Search";
 import { useServicosAtendimentosContext } from "../../../context/ServicoAtendimento/hooks/useServicos";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 

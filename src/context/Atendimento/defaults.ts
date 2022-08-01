@@ -30,6 +30,7 @@ export const INI_VALUES: AtendimentoContextType = {
             valor: 0,
             id: 0,
             state: true,
+            idCliente: 0,
         },
     ],
     setAtendimentos: () => { },
@@ -60,6 +61,7 @@ export const INI_VALUES: AtendimentoContextType = {
                 valor: 0,
                 id: 1,
                 state: true,
+                idCliente: 0,
             },
         ]
     },
