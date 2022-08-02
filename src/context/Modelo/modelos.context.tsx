@@ -46,66 +46,79 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 
 
 	useEffect(() => {
-		setModelos([
-			{
-				modelo: "Camaro",
-				marca: "Chevrolet",
-				id: 1,
-			},
-			{
-				modelo: "Cronos",
-				marca: "Fiat",
-				id: 2,
-			},
-			{
-				modelo: "Onix",
-				marca: "Chevrolet",
-				id: 3,
-			},
-			{
-				modelo: "Tracker",
-				marca: "Chevrolet",
-				id: 4,
-			},
-			{
-				modelo: "Uno",
-				marca: "Fiat",
-				id: 5,
-			},
-		])
-		dispatch({
-			type: "INITIALIZING",
-			payload: {
-				...initialState,
-				modelos: [
-					{
-						modelo: "Camaro",
-						marca: "Chevrolet",
-						id: 1,
-					},
-					{
-						modelo: "Cronos",
-						marca: "Fiat",
-						id: 2,
-					},
-					{
-						modelo: "Onix",
-						marca: "Chevrolet",
-						id: 3,
-					},
-					{
-						modelo: "Tracker",
-						marca: "Chevrolet",
-						id: 4,
-					},
-					{
-						modelo: "Uno",
-						marca: "Fiat",
-						id: 5,
-					},
-				]
-			}
-		})
+		const modelos = localStorage.getItem("@modelos");
+
+		if (modelos) {
+			setModelos([JSON.parse(modelos)])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					modelos: JSON.parse(modelos)
+				}
+			})
+		} else {
+			setModelos([
+				{
+					modelo: "Camaro",
+					marca: "Chevrolet",
+					id: 1,
+				},
+				{
+					modelo: "Cronos",
+					marca: "Fiat",
+					id: 2,
+				},
+				{
+					modelo: "Onix",
+					marca: "Chevrolet",
+					id: 3,
+				},
+				{
+					modelo: "Tracker",
+					marca: "Chevrolet",
+					id: 4,
+				},
+				{
+					modelo: "Uno",
+					marca: "Fiat",
+					id: 5,
+				},
+			])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					modelos: [
+						{
+							modelo: "Camaro",
+							marca: "Chevrolet",
+							id: 1,
+						},
+						{
+							modelo: "Cronos",
+							marca: "Fiat",
+							id: 2,
+						},
+						{
+							modelo: "Onix",
+							marca: "Chevrolet",
+							id: 3,
+						},
+						{
+							modelo: "Tracker",
+							marca: "Chevrolet",
+							id: 4,
+						},
+						{
+							modelo: "Uno",
+							marca: "Fiat",
+							id: 5,
+						},
+					]
+				}
+			})
+		}
 	}, [])
 
 	return (

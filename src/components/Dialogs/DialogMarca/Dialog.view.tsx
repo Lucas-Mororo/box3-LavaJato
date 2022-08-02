@@ -31,12 +31,12 @@ export default function DialogView(props: { action: string, id: number, marcas: 
                 {props.action === "CadastroMarca" ?
                     <>
                         <AddIcon />
-                        Cadastro
+                        &nbsp;Cadastro
                     </>
                     :
                     <>
                         <EditIcon />
-                        Alterar
+                        &nbsp;Alterar
                     </>
                 }
             </Button>
@@ -50,8 +50,6 @@ export default function DialogView(props: { action: string, id: number, marcas: 
                 <div >
                     <div
                         style={{
-                            // backgroundColor: theme.palette.primary.main,
-                            // width: "100%",
                             backgroundColor: "#0195ff",
                             padding: "12px 24px",
                             color: "white",

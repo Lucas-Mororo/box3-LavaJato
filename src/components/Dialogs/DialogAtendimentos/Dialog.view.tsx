@@ -23,12 +23,12 @@ export default function DialogView(props: { action: string, id: number, atendime
                 {props.action === "CadastroAtendimento" ?
                     <>
                         <AddIcon />
-                        Cadastro
+                        &nbsp;Cadastro
                     </>
                     :
                     <>
                         <EditIcon />
-                        Alterar
+                        &nbsp;Alterar
                     </>
                 }
             </Button>

@@ -28,12 +28,12 @@ export default function DialogView(props: { action: string, id: number, clientes
                 {props.action === "CadastroCliente" ?
                     <>
                         <AddIcon />
-                        Cadastro
+                        &nbsp;Cadastro
                     </>
                     :
                     <>
                         <EditIcon />
-                        Alterar
+                        &nbsp;Alterar
                     </>
                 }
             </Button>

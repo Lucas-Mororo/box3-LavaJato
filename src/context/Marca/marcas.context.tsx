@@ -45,72 +45,85 @@ export const MarcasProvider = ({ children }: ChildrenProps) => {
 
 
 	useEffect(() => {
-		setMarcas([
-			{
-				name: "Chevrolet",
-				id: 1,
-			},
-			{
-				name: "Fiat",
-				id: 2,
-			},
-			{
-				name: "Ford",
-				id: 3,
-			},
-			{
-				name: "Honda",
-				id: 4,
-			},
-			{
-				name: "Hyundai",
-				id: 5,
-			},
-			{
-				name: "Toyota",
-				id: 6,
-			},
-			{
-				name: "Volkswagen",
-				id: 7,
-			},
-		])
-		dispatch({
-			type: "INITIALIZING",
-			payload: {
-				...initialState,
-				marcas: [
-					{
-						name: "Chevrolet",
-						id: 1,
-					},
-					{
-						name: "Fiat",
-						id: 2,
-					},
-					{
-						name: "Ford",
-						id: 3,
-					},
-					{
-						name: "Honda",
-						id: 4,
-					},
-					{
-						name: "Hyundai",
-						id: 5,
-					},
-					{
-						name: "Toyota",
-						id: 6,
-					},
-					{
-						name: "Volkswagen",
-						id: 7,
-					},
-				]
-			}
-		})
+		const marcas = localStorage.getItem("@marcas");
+
+		if (marcas) {
+			setMarcas([JSON.parse(marcas)])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					marcas: JSON.parse(marcas)
+				}
+			})
+		} else {
+			setMarcas([
+				{
+					name: "Chevrolet",
+					id: 1,
+				},
+				{
+					name: "Fiat",
+					id: 2,
+				},
+				{
+					name: "Ford",
+					id: 3,
+				},
+				{
+					name: "Honda",
+					id: 4,
+				},
+				{
+					name: "Hyundai",
+					id: 5,
+				},
+				{
+					name: "Toyota",
+					id: 6,
+				},
+				{
+					name: "Volkswagen",
+					id: 7,
+				},
+			])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					marcas: [
+						{
+							name: "Chevrolet",
+							id: 1,
+						},
+						{
+							name: "Fiat",
+							id: 2,
+						},
+						{
+							name: "Ford",
+							id: 3,
+						},
+						{
+							name: "Honda",
+							id: 4,
+						},
+						{
+							name: "Hyundai",
+							id: 5,
+						},
+						{
+							name: "Toyota",
+							id: 6,
+						},
+						{
+							name: "Volkswagen",
+							id: 7,
+						},
+					]
+				}
+			})
+		}
 	}, [])
 
 	return (

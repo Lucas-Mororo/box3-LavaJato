@@ -1,17 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-    Box,
-    Button,
-    IconButton,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Typography,
-} from "@material-ui/core";
+import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@material-ui/core";
 import { useServicosContext } from "../../../context/Servico/hooks/useServicos";
 import Dialog from "../../Dialogs/DialogServicos/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -21,56 +9,60 @@ import MyImage from "../../../img/logo_Box3.png";
 export default function TabelasMservicosView(): React.ReactElement {
     const { stateReducerServico, deleteServico } = useServicosContext();
 
+    if (stateReducerServico.servicos.length > 0) {
+        localStorage.setItem("@servicos", JSON.stringify(stateReducerServico.servicos));
+    }
+
+
     return (
         <>
             <div
                 style={{
+                    width: "100%",
+                    flexDirection: "column",
+                    margin: "0px",
+                    padding: "0px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    maxWidth: "100%",
-                    margin: "10px",
                 }}
             >
-                {/* <img
-                    src={MyImage}
-                    alt="logo"
-                    style={{ width: "10vw", height: "8vh" }}
-                /> */}
                 <div
                     style={{
                         display: "flex",
-                        width: "88%",
-                        justifyContent: "space-between",
+                        justifyContent: "center",
                         alignItems: "center",
-                        padding: "10px",
-                        margin: "15px",
-                        // border: "#0195ff solid",
-                        borderRadius: "15px",
+                        width: "70%",
+                        marginBottom: "10px",
                     }}
                 >
-                    <Box>
-                        <Typography variant="h4" component="h6">
-                            Listagem de Servicos
-                        </Typography>
-                    </Box>
                     <div
                         style={{
                             display: "flex",
+                            width: "100%",
+                            justifyContent: "space-between",
                             alignItems: "center",
-                            justifyItems: "center",
-                            flexDirection: "row",
-                            gap: "10px",
+                            padding: "10px",
+                            margin: "20px 0px 20px 0px",
+                            borderRadius: "15px",
                         }}
                     >
-                        <Button
-                            variant="contained"
-                            style={{ backgroundColor: "#0195ff", color: "white" }}
+                        <Box>
+                            <Typography variant="h4" component="h6">
+                                Servicos
+                            </Typography>
+                        </Box>
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyItems: "center",
+                                flexDirection: "row",
+                                gap: "10px",
+                            }}
                         >
-                            <SearchIcon />
-                            Buscar
-                        </Button>
-                        <Dialog action={"CadastroServico"} id={0} servicos={stateReducerServico.servicos} />
+                            <Dialog action={"CadastroServico"} id={0} servicos={stateReducerServico.servicos} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +72,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead>
                                 <TableRow hover role="checkbox" tabIndex={-1}>
-                                    <TableCell align="center" style={{ width: "35%" }}>
+                                    <TableCell align="left" style={{ width: "35%" }}>
                                         <Typography style={{ fontWeight: "bold", color: "black" }}>
                                             Serviço&nbsp;
                                         </Typography>
@@ -106,7 +98,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                                 {stateReducerServico.servicos?.map((servico, index) => (
                                     <TableRow key={index}>
 
-                                        <TableCell align="center" style={{ width: "25%" }}>
+                                        <TableCell align="left" style={{ width: "25%" }}>
                                             {servico.servico}
                                         </TableCell>
                                         <TableCell align="center" style={{ width: "25%" }}>

@@ -13,6 +13,10 @@ export default function TabelaClientesView(): React.ReactElement {
   const { stateReducer, deleteClient } = useClientesContext();
   const { stateReducerAtendimentos } = useAtendimentoContext();
 
+  if (stateReducer.clientes.length > 0) {
+    localStorage.setItem("@clientes", JSON.stringify(stateReducer.clientes));
+  }
+
   function deleCliente(id: number) {
     const verify = stateReducerAtendimentos.atendimentos.filter((atendimento) => {
       return (atendimento.idCliente === id)
@@ -29,56 +33,51 @@ export default function TabelaClientesView(): React.ReactElement {
     <>
       <div
         style={{
+          width: "100%",
+          flexDirection: "column",
+          margin: "0px",
+          padding: "0px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: "100%",
-          margin: "10px",
         }}
       >
-        {/* <img
-          src={MyImage}
-          alt="logo"
-          style={{ width: "10vw", height: "8vh" }}
-        /> */}
         <div
           style={{
             display: "flex",
-            width: "88%",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
-            padding: "10px",
-            margin: "15px",
-            // border: "#0195ff solid",
-            borderRadius: "15px",
+            width: "70%",
+            marginBottom: "10px",
           }}
         >
-          <Box>
-            <Typography variant="h4" component="h6">
-              Listagem de Clientes
-            </Typography>
-          </Box>
           <div
             style={{
               display: "flex",
+              width: "100%",
+              justifyContent: "space-between",
               alignItems: "center",
-              justifyItems: "center",
-              flexDirection: "row",
-              gap: "10px",
+              padding: "10px",
+              margin: "20px 0px 20px 0px",
+              borderRadius: "15px",
             }}
           >
-            <Button
-              variant="contained"
-              style={{ backgroundColor: "#0195ff", color: "white" }}
+            <Box>
+              <Typography variant="h4" component="h6">
+                Clientes
+              </Typography>
+            </Box>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyItems: "center",
+                flexDirection: "row",
+                gap: "10px",
+              }}
             >
-              <SearchIcon />
-              Buscar
-            </Button>
-            <Dialog
-              action={"CadastroCliente"}
-              id={0}
-              clientes={stateReducer.clientes}
-            />
+              <Dialog action={"CadastroCliente"} id={0} clientes={stateReducer.clientes} />
+            </div>
           </div>
         </div>
       </div>
@@ -93,7 +92,7 @@ export default function TabelaClientesView(): React.ReactElement {
                     Id&nbsp;
                   </Typography>
                 </TableCell> */}
-                  <TableCell align="center" style={{ width: "25%" }}>
+                  <TableCell align="left" style={{ width: "25%" }}>
                     <Typography style={{ fontWeight: "bold", color: "black" }}>
                       Nome&nbsp;
                     </Typography>
@@ -149,7 +148,7 @@ export default function TabelaClientesView(): React.ReactElement {
                       </Box>
                     </div>
                   </TableCell> */}
-                    <TableCell align="center" style={{ width: "25%" }}>
+                    <TableCell align="left" style={{ width: "25%" }}>
                       {cliente.name}
                     </TableCell>
                     <TableCell align="center" style={{ width: "25%" }}>

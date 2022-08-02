@@ -1,0 +1,74 @@
+.div1-TabelaAtendimentosView {
+  width: 100%;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div2-TabelaAtendimentosView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.div3-TabelaAtendimentosView {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 20px 0px 20px 0px;
+  border-radius: 15px;
+}
+
+.div4-TabelaAtendimentosView {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+
+.div5-TabelaAtendimentosView {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typographyTableCell {
+  font-weight: bold;
+  color: black;
+}
+
+.div6-TabelaAtendimentosView {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div7-TabelaAtendimentosView {
+  background-color: #0195ff;
+  color: white;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+}
+
+.div8-TabelaAtendimentosView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

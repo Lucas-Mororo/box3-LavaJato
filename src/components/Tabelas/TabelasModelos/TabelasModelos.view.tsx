@@ -9,37 +9,48 @@ import MyImage from "../../../img/logo_Box3.png";
 export default function TabelasModelosView(): React.ReactElement {
   const { stateReducerModelo, deleteModelo } = useModelosContext();
 
+  if (stateReducerModelo.modelos.length > 0) {
+    localStorage.setItem("@modelos", JSON.stringify(stateReducerModelo.modelos));
+  }
+
   return (
     <>
       <div style={{
+        width: "100%",
+        flexDirection: "column",
+        margin: "0px",
+        padding: "0px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        maxWidth: "100%",
-        margin: "10px"
       }}>
-        {/* <img src={MyImage} alt="logo" style={{ width: "10vw", height: "8vh" }} /> */}
-        <div style={{
-          display: "flex",
-          width: "88%",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "10px",
-          margin: "15px",
-          // border: "#0195ff solid",
-          borderRadius: "15px"
-        }}>
-          <Box>
-            <Typography variant="h4" component="h6">
-              Listagem de Modelos
-            </Typography>
-          </Box>
-          <div style={{ display: "flex", alignItems: "center", justifyItems: "center", flexDirection: "row", gap: "10px" }}>
-            <Button variant="contained" style={{ backgroundColor: "#0195ff", color: "white" }}>
-              <SearchIcon />
-              Buscar
-            </Button>
-            <Dialog action={"CadastroModelo"} id={0} modelos={stateReducerModelo.modelos} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "70%",
+            marginBottom: "10px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "10px",
+              margin: "20px 0px 20px 0px",
+              borderRadius: "15px",
+            }}>
+            <Box>
+              <Typography variant="h4" component="h6">
+                Modelos
+              </Typography>
+            </Box>
+            <div style={{ display: "flex", alignItems: "center", justifyItems: "center", flexDirection: "row", gap: "10px" }}>
+              <Dialog action={"CadastroModelo"} id={0} modelos={stateReducerModelo.modelos} />
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +60,7 @@ export default function TabelasModelosView(): React.ReactElement {
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow hover role="checkbox" tabIndex={-1}>
-                  <TableCell align="center" style={{ width: "30%" }}>
+                  <TableCell align="left" style={{ width: "30%" }}>
                     <Typography style={{ fontWeight: "bold", color: "black" }}>Nome&nbsp;</Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "30%" }}>
@@ -63,7 +74,7 @@ export default function TabelasModelosView(): React.ReactElement {
               <TableBody>
                 {stateReducerModelo.modelos?.map((modelo, index) => (
                   <TableRow key={index}>
-                    <TableCell align="center" style={{ width: "25%" }}>
+                    <TableCell align="left" style={{ width: "25%" }}>
                       {modelo.modelo}
                     </TableCell>
                     <TableCell align="center" style={{ width: "25%" }}>

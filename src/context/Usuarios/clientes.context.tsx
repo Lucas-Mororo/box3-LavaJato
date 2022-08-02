@@ -48,76 +48,89 @@ export const ClientesProvider = ({ children }: ChildrenProps) => {
 	}
 
 	useEffect(() => {
-		setClientes([
-			{
-				name: "Lucas",
-				email: "Lucas@gmail.com",
-				is_active: true,
-				telefone: "(88)99790-8018",
-				CPFCNPJ: "066.144.055-68",
-				CEP: "62250000",
-				logradouro: "Manoel Dias",
-				numero: "956",
-				complemento: "AP",
-				bairro: "Reino",
-				cidade: "Ipu",
-				estado: "CE",
-				id: 1,
-			},
-			{
-				name: "LucasMMMMMMMMMMMMMMMMM",
-				email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
-				is_active: true,
-				telefone: "(11)11111-1111",
-				CPFCNPJ: "066.144.055-68",
-				CEP: "62250000",
-				logradouro: "Manoel Dias",
-				numero: "956",
-				complemento: "AP",
-				bairro: "Reino",
-				cidade: "Ipu",
-				estado: "CE",
-				id: 2,
-			},
-		])
-		dispatch({
-			type: "INITIALIZING",
-			payload: {
-				...initialState,
-				clientes: [
-					{
-						name: "Lucas",
-						email: "Lucas@gmail.com",
-						is_active: true,
-						telefone: "(88)99790-8018",
-						CPFCNPJ: "066.144.055-68",
-						CEP: "62250000",
-						logradouro: "Manoel Dias",
-						numero: "956",
-						complemento: "AP",
-						bairro: "Reino",
-						cidade: "Ipu",
-						estado: "CE",
-						id: 1,
-					},
-					{
-						name: "LucasMMMMMMMMMMMMMMMMM",
-						email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
-						is_active: true,
-						telefone: "(11)11111-1111",
-						CPFCNPJ: "066.144.055-68",
-						CEP: "62250000",
-						logradouro: "Manoel Dias",
-						numero: "956",
-						complemento: "AP",
-						bairro: "Reino",
-						cidade: "Ipu",
-						estado: "CE",
-						id: 2,
-					},
-				]
-			}
-		})
+		const clientes = localStorage.getItem("@clientes");
+
+		if (clientes) {
+			setClientes([JSON.parse(clientes)])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					clientes: JSON.parse(clientes)
+				}
+			})
+		} else {
+			setClientes([
+				{
+					name: "Lucas",
+					email: "Lucas@gmail.com",
+					is_active: true,
+					telefone: "(88)99790-8018",
+					CPFCNPJ: "066.144.055-68",
+					CEP: "62250000",
+					logradouro: "Manoel Dias",
+					numero: "956",
+					complemento: "AP",
+					bairro: "Reino",
+					cidade: "Ipu",
+					estado: "CE",
+					id: 1,
+				},
+				{
+					name: "LucasMMMMMMMMMMMMMMMMM",
+					email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
+					is_active: true,
+					telefone: "(11)11111-1111",
+					CPFCNPJ: "066.144.055-68",
+					CEP: "62250000",
+					logradouro: "Manoel Dias",
+					numero: "956",
+					complemento: "AP",
+					bairro: "Reino",
+					cidade: "Ipu",
+					estado: "CE",
+					id: 2,
+				},
+			])
+			dispatch({
+				type: "INITIALIZING",
+				payload: {
+					...initialState,
+					clientes: [
+						{
+							name: "Lucas",
+							email: "Lucas@gmail.com",
+							is_active: true,
+							telefone: "(88)99790-8018",
+							CPFCNPJ: "066.144.055-68",
+							CEP: "62250000",
+							logradouro: "Manoel Dias",
+							numero: "956",
+							complemento: "AP",
+							bairro: "Reino",
+							cidade: "Ipu",
+							estado: "CE",
+							id: 1,
+						},
+						{
+							name: "LucasMMMMMMMMMMMMMMMMM",
+							email: "LucasMMMMMMMMMMMMMMMMM@gmail.com",
+							is_active: true,
+							telefone: "(11)11111-1111",
+							CPFCNPJ: "066.144.055-68",
+							CEP: "62250000",
+							logradouro: "Manoel Dias",
+							numero: "956",
+							complemento: "AP",
+							bairro: "Reino",
+							cidade: "Ipu",
+							estado: "CE",
+							id: 2,
+						},
+					]
+				}
+			})
+		}
 	}, [])
 
 	return (

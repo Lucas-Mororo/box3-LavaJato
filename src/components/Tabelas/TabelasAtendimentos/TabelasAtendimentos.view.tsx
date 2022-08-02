@@ -5,95 +5,55 @@ import Dialog from "../../Dialogs/DialogAtendimentos/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
+import './style.css';
 
 export default function TabelaAtendimentosView(): React.ReactElement {
   const { stateReducerAtendimentos, deleteAtendimento } = useAtendimentoContext();
 
+  if (stateReducerAtendimentos.atendimentos.length > 0) {
+    localStorage.setItem("@atendimentos", JSON.stringify(stateReducerAtendimentos.atendimentos));
+  }
+
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          maxWidth: "100%",
-          margin: "10px",
-        }}
-      >
-        {/* <img
-          src={MyImage}
-          alt="logo"
-          style={{ width: "10vw", height: "8vh" }}
-        /> */}
-        <div
-          style={{
-            display: "flex",
-            width: "88%",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "10px",
-            margin: "15px",
-            // border: "#0195ff solid",
-            borderRadius: "15px",
-          }}
-        >
-          <Box>
-            <Typography variant="h4" component="h6">
-              Listagem de Atendimentos
-            </Typography>
-          </Box>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyItems: "center",
-              flexDirection: "row",
-              gap: "10px",
-            }}
-          >
-            <Button
-              variant="contained"
-              style={{ backgroundColor: "#0195ff", color: "white" }}
-            >
-              <SearchIcon />
-              Buscar
-            </Button>
-            <Dialog
-              action={"CadastroAtendimento"}
-              id={0}
-              atendimentos={stateReducerAtendimentos.atendimentos}
-            />
+      <div className="div1-TabelaAtendimentosView">
+        <div className="div2-TabelaAtendimentosView" >
+          <div className="div3-TabelaAtendimentosView" >
+            <Box><Typography variant="h4" component="h6">Atendimentos</Typography></Box>
+            <div className="div4-TabelaAtendimentosView" >
+              <Dialog action={"CadastroAtendimento"} id={0} atendimentos={stateReducerAtendimentos.atendimentos} />
+            </div>
           </div>
         </div>
       </div>
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+      <div className="div5-TabelaAtendimentosView" >
         <Paper style={{ width: "70%" }}>
           <TableContainer>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow hover role="checkbox" tabIndex={-1}>
                   <TableCell align="center" style={{ width: "5%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>
-                      Id&nbsp;
+                    <Typography className="typographyTableCell" >
+                      #&nbsp;
                     </Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "25%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>
+                    <Typography className="typographyTableCell" >
                       Cliente&nbsp;
                     </Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "25%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>
+                    <Typography className="typographyTableCell" >
                       Telefone&nbsp;
                     </Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "25%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>
+                    <Typography className="typographyTableCell" >
                       Status&nbsp;
                     </Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "20%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>
+                    <Typography className="typographyTableCell">
                       Ações&nbsp;
                     </Typography>
                   </TableCell>
@@ -102,35 +62,9 @@ export default function TabelaAtendimentosView(): React.ReactElement {
               <TableBody>
                 {stateReducerAtendimentos.atendimentos?.map((atendimento, index) => (
                   <TableRow key={index}>
-                    <TableCell
-                      align="center"
-                      style={{
-                        width: "5%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: " center",
-                        }}
-                      >
-                        <Box
-                          style={{
-                            backgroundColor: "#0195ff",
-                            color: "white",
-                            width: "30px",
-                            height: "30px",
-                            alignSelf: "center",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: " center",
-                            borderRadius: "20%",
-                          }}
-                        >
-                          {atendimento.id}
-                        </Box>
+                    <TableCell align="center" style={{ width: "5%" }}>
+                      <div className="div6-TabelaAtendimentosView">
+                        <Box className="div7-TabelaAtendimentosView">{atendimento.id}</Box>
                       </div>
                     </TableCell>
                     <TableCell align="center" style={{ width: "25%" }}>
@@ -140,38 +74,12 @@ export default function TabelaAtendimentosView(): React.ReactElement {
                       {atendimento.telefone}
                     </TableCell>
                     <TableCell align="center" style={{ width: "25%" }}>
-                      {
-                        atendimento.state ?
-                          <>
-                            Ativo
-                          </>
-                          :
-                          <>
-                            Desativo
-                          </>
-                      }
+                      {atendimento.state ? <>Ativo</> : <>Desativo</>}
                     </TableCell>
                     <TableCell align="center">
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: " center",
-                          gap: "10px",
-                        }}
-                      >
-                        <Dialog
-                          action={"AlterarAtendimento"}
-                          id={atendimento.id}
-                          atendimentos={stateReducerAtendimentos.atendimentos}
-                        />
-                        <Button
-                          variant="contained"
-                          style={{ backgroundColor: "#c82333", color: "white" }}
-                          onClick={() => {
-                            deleteAtendimento(atendimento.id);
-                          }}
-                        >
+                      <div className="div8-TabelaAtendimentosView">
+                        <Dialog action={"AlterarAtendimento"} id={atendimento.id} atendimentos={stateReducerAtendimentos.atendimentos} />
+                        <Button variant="contained" style={{ backgroundColor: "#c82333", color: "white" }} onClick={() => { deleteAtendimento(atendimento.id) }}>
                           <DeleteForeverIcon />
                           Deletar
                         </Button>

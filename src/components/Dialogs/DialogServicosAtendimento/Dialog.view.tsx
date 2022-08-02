@@ -24,7 +24,7 @@ export default function DialogView(): React.ReactElement {
                 }}
             >
                 <AddIcon />
-                Cadastro
+                &nbsp;Cadastro
             </Button>
 
             <Dialog open={open} onClose={handleClose}

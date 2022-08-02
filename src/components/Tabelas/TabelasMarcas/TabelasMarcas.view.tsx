@@ -1,28 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-    Box,
-    Button,
-    IconButton,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Typography,
-} from "@material-ui/core";
+import React from "react";
+import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useMarcasContext } from "../../../context/Marca/hooks/useMarcas";
 import Dialog from "../../Dialogs/DialogMarca/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import SearchIcon from "@material-ui/icons/Search";
-import MyImage from "../../../img/logo_Box3.png";
 import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
 import Notify from "../../../utils/Notification";
 
 export default function TabelasMarcasView(): React.ReactElement {
     const { stateReducerMarca, deleteMarca } = useMarcasContext();
     const { stateReducerModelo } = useModelosContext();
+
+    if(stateReducerMarca.marcas.length > 0){
+        localStorage.setItem("@marcas", JSON.stringify(stateReducerMarca.marcas));
+    }
 
     function deleMarca(id: number, marcaName: string) {
         const verify = stateReducerModelo.modelos.filter((modelo) => {
@@ -36,36 +27,39 @@ export default function TabelasMarcasView(): React.ReactElement {
     }
 
     return (
-        <>
+        <div
+            style={{
+                width: "100%",
+                flexDirection: "column",
+                margin: "0px",
+                padding: "0px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
             <div
                 style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    maxWidth: "100%",
-                    margin: "10px",
+                    width: "70%",
+                    marginBottom: "10px",
                 }}
             >
-                {/* <img
-                    src={MyImage}
-                    alt="logo"
-                    style={{ width: "10vw", height: "8vh" }}
-                /> */}
                 <div
                     style={{
                         display: "flex",
-                        width: "88%",
+                        width: "100%",
                         justifyContent: "space-between",
                         alignItems: "center",
                         padding: "10px",
-                        margin: "15px",
-                        // border: "#0195ff solid",
+                        margin: "20px 0px 20px 0px",
                         borderRadius: "15px",
                     }}
                 >
                     <Box>
                         <Typography variant="h4" component="h6">
-                            Listagem de Marcas
+                            Marcas
                         </Typography>
                     </Box>
                     <div
@@ -77,18 +71,11 @@ export default function TabelasMarcasView(): React.ReactElement {
                             gap: "10px",
                         }}
                     >
-                        <Button
-                            variant="contained"
-                            style={{ backgroundColor: "#0195ff", color: "white" }}
-                        >
-                            <SearchIcon />
-                            Buscar
-                        </Button>
                         <Dialog action={"CadastroMarca"} id={0} marcas={stateReducerMarca.marcas} />
                     </div>
                 </div>
             </div>
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <Paper style={{ width: "70%" }}>
                     <TableContainer>
                         <Table stickyHeader aria-label="sticky table">
@@ -97,7 +84,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                                     {/* <TableCell align="center" style={{ width: "20%" }}>
                                     <Typography style={{ fontWeight: "bold", color: "black" }}>Id&nbsp;</Typography>
                                 </TableCell> */}
-                                    <TableCell align="center" style={{ width: "60%" }}>
+                                    <TableCell align="left" style={{ width: "60%" }}>
                                         <Typography style={{ fontWeight: "bold", color: "black" }}>
                                             Marca&nbsp;
                                         </Typography>
@@ -112,7 +99,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                             <TableBody>
                                 {stateReducerMarca.marcas?.map((marca, index) => (
                                     <TableRow key={index}>
-                                        <TableCell align="center" style={{ width: "25%" }}>
+                                        <TableCell align="left" style={{ width: "25%" }}>
                                             {marca.name}
                                         </TableCell>
 
@@ -130,7 +117,6 @@ export default function TabelasMarcasView(): React.ReactElement {
                                                     id={marca.id}
                                                     marcas={stateReducerMarca.marcas}
                                                 />
-
                                                 <Button
                                                     variant="contained"
                                                     style={{ backgroundColor: "#c82333", color: "white" }}
@@ -150,6 +136,6 @@ export default function TabelasMarcasView(): React.ReactElement {
                     </TableContainer>
                 </Paper>
             </div>
-        </>
+        </div>
     );
 }
