@@ -48,12 +48,19 @@ export default function FormularioView(props: { action: string, id: number, clie
             if (getValues("CEP") !== undefined) {
                 axios.get(`https://viacep.com.br/ws/${getValues("CEP")}/json/`)
                     .then(({ data }: AxiosResponse<any>) => {
-                        reset({
-                            logradouro: data.logradouro,
-                            cidade: data.localidade,
-                            bairro: data.bairro,
-                            estado: data.uf,
-                        });
+                        console.log("🚀 ~ file: Formulario.view.tsx ~ line 51 ~ .then ~ data", data)
+                        if (data.erro) {
+                            Notify(
+                                "CEP não encontrado, preencha o endereço manualmente", "error"
+                            );
+                        } else {
+                            reset({
+                                logradouro: data.logradouro,
+                                cidade: data.localidade,
+                                bairro: data.bairro,
+                                estado: data.uf,
+                            });
+                        }
                     });
             };
         }

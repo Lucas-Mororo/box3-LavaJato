@@ -82,26 +82,32 @@ export default function FormularioView(props: { id: number, atendimentos: Atendi
     function viaCep(e: string) {
         axios.get(`https://viacep.com.br/ws/${e}/json/`)
             .then(({ data }: AxiosResponse<any>) => {
-                setLogradouroCep(data.logradouro);
-                setLocalidadeCep(data.localidade);
-                setBairroCep(data.bairro);
-                setUfCep(data.uf);
-                setValue(
-                    "logradouro",
-                    data.logradouro
-                );
-                setValue(
-                    "cidade",
-                    data.localidade
-                );
-                setValue(
-                    "bairro",
-                    data.bairro
-                );
-                setValue(
-                    "estado",
-                    data.uf
-                );
+                if (data.erro) {
+                    Notify(
+                        "CEP não encontrado, preencha o endereço manualmente", "error"
+                    );
+                } else {
+                    setLogradouroCep(data.logradouro);
+                    setLocalidadeCep(data.localidade);
+                    setBairroCep(data.bairro);
+                    setUfCep(data.uf);
+                    setValue(
+                        "logradouro",
+                        data.logradouro
+                    );
+                    setValue(
+                        "cidade",
+                        data.localidade
+                    );
+                    setValue(
+                        "bairro",
+                        data.bairro
+                    );
+                    setValue(
+                        "estado",
+                        data.uf
+                    );
+                }
             });
     }
 
