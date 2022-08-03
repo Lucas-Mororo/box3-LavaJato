@@ -831,7 +831,7 @@ export default function FormularioView(props: { id: number, atendimentos: Atendi
                         getValues("state") ?
                             <Button
                                 style={{
-                                    backgroundColor: disabled === true ? "rgba(0, 0, 0, 0.26)" : "#2DE820",
+                                    backgroundColor: disabled === true ? "rgba(0, 0, 0, 0.26)" : "#0195ff",
                                     color: disabled === true ? "rgba(0, 0, 0, 0.26)" : "white",
                                 }}
                                 disableElevation

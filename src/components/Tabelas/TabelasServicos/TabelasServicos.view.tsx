@@ -9,9 +9,11 @@ import MyImage from "../../../img/logo_Box3.png";
 export default function TabelasMservicosView(): React.ReactElement {
     const { stateReducerServico, deleteServico } = useServicosContext();
 
-    if (stateReducerServico.servicos.length > 0) {
-        localStorage.setItem("@servicos", JSON.stringify(stateReducerServico.servicos));
-    }
+    setTimeout(() => {
+        if (stateReducerServico.servicos.length >= 0) {
+            localStorage.setItem("@servicos", JSON.stringify(stateReducerServico.servicos));
+        }
+    }, 1000)
 
 
     return (

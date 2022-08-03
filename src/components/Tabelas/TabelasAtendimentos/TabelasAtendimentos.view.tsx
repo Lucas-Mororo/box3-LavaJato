@@ -3,16 +3,18 @@ import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableH
 import { useAtendimentoContext } from "../../../context/Atendimento/hooks/useAtendimentos";
 import Dialog from "../../Dialogs/DialogAtendimentos/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import SearchIcon from "@material-ui/icons/Search";
-import MyImage from "../../../img/logo_Box3.png";
 import './style.css';
+import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
 
 export default function TabelaAtendimentosView(): React.ReactElement {
   const { stateReducerAtendimentos, deleteAtendimento } = useAtendimentoContext();
 
-  if (stateReducerAtendimentos.atendimentos.length > 0) {
-    localStorage.setItem("@atendimentos", JSON.stringify(stateReducerAtendimentos.atendimentos));
-  }
+  setTimeout(() => {
+    if (stateReducerAtendimentos.atendimentos.length >= 0) {
+      localStorage.setItem("@atendimentos", JSON.stringify(stateReducerAtendimentos.atendimentos));
+    }
+  }, 1000)
 
   return (
     <>
@@ -74,7 +76,7 @@ export default function TabelaAtendimentosView(): React.ReactElement {
                       {atendimento.telefone}
                     </TableCell>
                     <TableCell align="center" style={{ width: "25%" }}>
-                      {atendimento.state ? <>Ativo</> : <>Desativo</>}
+                      {atendimento.state ? <Check /> : <Clear />}
                     </TableCell>
                     <TableCell align="center">
                       <div className="div8-TabelaAtendimentosView">

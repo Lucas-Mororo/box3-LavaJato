@@ -19,7 +19,7 @@ export default function reducer(state: { marcas: Marcas[]; }, action: { type: an
 
         case "UPDATE":
             const updatedMarca = action.payload;
-            
+
 
             const updatedMarcas = state.marcas.map((marca: { id: number; }) => {
                 if (marca.id === updatedMarca.id) {

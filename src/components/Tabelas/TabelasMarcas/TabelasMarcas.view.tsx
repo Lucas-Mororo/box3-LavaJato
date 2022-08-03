@@ -11,9 +11,11 @@ export default function TabelasMarcasView(): React.ReactElement {
     const { stateReducerMarca, deleteMarca } = useMarcasContext();
     const { stateReducerModelo } = useModelosContext();
 
-    if(stateReducerMarca.marcas.length > 0){
-        localStorage.setItem("@marcas", JSON.stringify(stateReducerMarca.marcas));
-    }
+    setTimeout(() => {
+        if (stateReducerMarca.marcas.length >= 0) {
+            localStorage.setItem("@marcas", JSON.stringify(stateReducerMarca.marcas));
+        }
+    }, 1000)
 
     function deleMarca(id: number, marcaName: string) {
         const verify = stateReducerModelo.modelos.filter((modelo) => {

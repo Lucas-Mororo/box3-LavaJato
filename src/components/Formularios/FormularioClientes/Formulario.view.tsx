@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-import { Box, Button, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@material-ui/core";
+import { Button, FormControl, MenuItem, TextField, } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import { useClientesContext } from "../../../context/Usuarios/hooks/useClientes";
 import { Clientes } from "../../../models/clientes";
 import Notify from "../../../utils/Notification";
 import axios, { AxiosResponse } from "axios";
 import { EstadoBrasileiro } from "../../../models/estadoBrasileiro";
-import { CNPJ, CPF } from "../../../utils/masks";
+import { cepMask, CNPJ, CPF, phone } from "../../../utils/masks";
 
 export default function FormularioView(props: { action: string, id: number, clientes: Clientes[], setOpen: any }): React.ReactElement {
     const { register, handleSubmit, control, getValues, setValue, reset, formState: { errors }, } = useForm({ mode: "onSubmit" });
@@ -59,23 +59,6 @@ export default function FormularioView(props: { action: string, id: number, clie
         }
     }, [props.action, props.id, props.clientes, reset, buscarCep, getValues, reset]);
 
-   
-
-    function phone(value: string) {
-        return value
-            .replace(/\D/g, "")
-            .replace(/(\d{2})(\d)/, "($1) $2")
-            .replace(/(\d{5})(\d)/, "$1-$2")
-    }
-
-    function cepMask(value: string) {
-        return value
-            .replace(/\D/g, '')
-            .replace(/(\d{5})(\d)/, '$1-$2')
-            .replace(/(-\d{3})\d+?$/, '$1')
-    }
-
-
     return (
         <form
             onSubmit={handleSubmit((data) => {
@@ -104,7 +87,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.clientes.length+1;
+                    const id = props.clientes.length + 1;
                     action({
                         name: data.name,
                         email: data.email,

@@ -13,9 +13,11 @@ export default function TabelaClientesView(): React.ReactElement {
   const { stateReducer, deleteClient } = useClientesContext();
   const { stateReducerAtendimentos } = useAtendimentoContext();
 
-  if (stateReducer.clientes.length > 0) {
-    localStorage.setItem("@clientes", JSON.stringify(stateReducer.clientes));
-  }
+  setTimeout(() => {
+    if (stateReducer.clientes.length >= 0) {
+      localStorage.setItem("@clientes", JSON.stringify(stateReducer.clientes));
+    }
+  }, 1000)
 
   function deleCliente(id: number) {
     const verify = stateReducerAtendimentos.atendimentos.filter((atendimento) => {

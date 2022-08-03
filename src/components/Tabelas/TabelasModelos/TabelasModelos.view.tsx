@@ -9,9 +9,11 @@ import MyImage from "../../../img/logo_Box3.png";
 export default function TabelasModelosView(): React.ReactElement {
   const { stateReducerModelo, deleteModelo } = useModelosContext();
 
-  if (stateReducerModelo.modelos.length > 0) {
-    localStorage.setItem("@modelos", JSON.stringify(stateReducerModelo.modelos));
-  }
+  setTimeout(() => {
+    if (stateReducerModelo.modelos.length >= 0) {
+      localStorage.setItem("@modelos", JSON.stringify(stateReducerModelo.modelos));
+    }
+  }, 1000)
 
   return (
     <>

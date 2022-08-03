@@ -88,6 +88,70 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 					idCliente: 2,
 					telefone: "(11)11111-1111",
 					valor: 62.5,
+				},
+				{
+					CEP: "62010-585",
+					bairro: "Centro",
+					cidade: "Sobral",
+					cliente: "Lucas",
+					complemento: "asdasd",
+					dataF: "2022-08-02T17:00:00",
+					dataI: "2022-08-02T16:30:00",
+					estado: "CE",
+					id: 2,
+					idCliente: 1,
+					logradouro: "Rua Luiz Gonzaga Prado",
+					marca: "Fiat",
+					modelo: "Uno",
+					numero: "4",
+					placa: "ASD234",
+					servicos: [
+						{
+							servico: 'Lavagem simples',
+							valor: 40,
+							id: 4
+						},
+						{
+							servico: 'Polimento de faróis',
+							valor: 30,
+							id: 6
+						}
+					],
+					state: false,
+					telefone: "(88)99790-8018",
+					valor: 70
+				},
+				{
+					CEP: "62010-585",
+					bairro: "Centro",
+					cidade: "Sobral",
+					cliente: "Lucas",
+					complemento: "asdasd",
+					dataF: "2022-08-02T17:00:00",
+					dataI: "2022-08-02T16:00:00",
+					estado: "CE",
+					id: 3,
+					idCliente: 1,
+					logradouro: "Rua Luiz Gonzaga Prado",
+					marca: "Fiat",
+					modelo: "Uno",
+					numero: "4",
+					placa: "ASD234",
+					servicos: [
+						{
+							servico: 'Lavagem simples',
+							valor: 40,
+							id: 4
+						},
+						{
+							servico: 'Polimento de faróis',
+							valor: 30,
+							id: 6
+						}
+					],
+					state: false,
+					telefone: "(88)99790-8018",
+					valor: 70
 				}
 			])
 			dispatch({
@@ -126,6 +190,70 @@ export const AtendimentosProvider = ({ children }: ChildrenProps) => {
 							idCliente: 2,
 							telefone: "(11)11111-1111",
 							valor: 62.5,
+						},
+						{
+							CEP: "62010-585",
+							bairro: "Centro",
+							cidade: "Sobral",
+							cliente: "Lucas",
+							complemento: "asdasd",
+							dataF: "2022-08-02T17:00:00",
+							dataI: "2022-08-02T16:30:00",
+							estado: "CE",
+							id: 2,
+							idCliente: 1,
+							logradouro: "Rua Luiz Gonzaga Prado",
+							marca: "Fiat",
+							modelo: "Uno",
+							numero: "4",
+							placa: "ASD234",
+							servicos: [
+								{
+									servico: 'Lavagem simples',
+									valor: 40,
+									id: 4
+								},
+								{
+									servico: 'Polimento de faróis',
+									valor: 30,
+									id: 6
+								}
+							],
+							state: false,
+							telefone: "(88)99790-8018",
+							valor: 70
+						},
+						{
+							CEP: "62010-585",
+							bairro: "Centro",
+							cidade: "Sobral",
+							cliente: "Lucas",
+							complemento: "asdasd",
+							dataF: "2022-08-02T17:00:00",
+							dataI: "2022-08-02T16:00:00",
+							estado: "CE",
+							id: 3,
+							idCliente: 1,
+							logradouro: "Rua Luiz Gonzaga Prado",
+							marca: "Fiat",
+							modelo: "Uno",
+							numero: "4",
+							placa: "ASD234",
+							servicos: [
+								{
+									servico: 'Lavagem simples',
+									valor: 40,
+									id: 4
+								},
+								{
+									servico: 'Polimento de faróis',
+									valor: 30,
+									id: 6
+								}
+							],
+							state: false,
+							telefone: "(88)99790-8018",
+							valor: 70
 						}
 					]
 				}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
 import TableAtendimentos from '../pages/TableAtendimentos';
 import TableClientes from '../pages/TableClientes';
 import TableMarcas from '../pages/TableMarcas';
@@ -11,7 +12,7 @@ const PublicRouter = (): React.ReactElement => {
 
     return (
         <Routes>
-            <Route path="/" element={<TableClientes />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/LavaJato/Marcas" element={<TableMarcas />} />
             <Route path="/LavaJato/Modelos" element={<TableModelos />} />
             <Route path="/LavaJato/Clientes" element={<TableClientes />} />
