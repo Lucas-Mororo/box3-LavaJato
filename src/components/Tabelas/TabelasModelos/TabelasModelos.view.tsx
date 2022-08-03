@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
+import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
 import Dialog from "../../Dialogs/DialogModelo/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import SearchIcon from "@material-ui/icons/Search";
-import MyImage from "../../../img/logo_Box3.png";
+import './style.css';
 
 export default function TabelasModelosView(): React.ReactElement {
   const { stateReducerModelo, deleteModelo } = useModelosContext();
@@ -17,59 +16,34 @@ export default function TabelasModelosView(): React.ReactElement {
 
   return (
     <>
-      <div style={{
-        width: "100%",
-        flexDirection: "column",
-        margin: "0px",
-        padding: "0px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "70%",
-            marginBottom: "10px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px",
-              margin: "20px 0px 20px 0px",
-              borderRadius: "15px",
-            }}>
+      <div className="div1-TabelasModelosView">
+        <div className="div2-TabelasModelosView">
+          <div className="div3-TabelasModelosView">
             <Box>
               <Typography variant="h4" component="h6">
                 Modelos
               </Typography>
             </Box>
-            <div style={{ display: "flex", alignItems: "center", justifyItems: "center", flexDirection: "row", gap: "10px" }}>
+            <div className="div4-TabelasModelosView">
               <Dialog action={"CadastroModelo"} id={0} modelos={stateReducerModelo.modelos} />
             </div>
           </div>
         </div>
       </div>
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+      <div className="div5-TabelasModelosView">
         <Paper style={{ width: "70%" }} >
           <TableContainer>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow hover role="checkbox" tabIndex={-1}>
                   <TableCell align="left" style={{ width: "30%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>Nome&nbsp;</Typography>
+                    <Typography className="typography-TabelasModelosView" >Nome</Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "30%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>Marca&nbsp;</Typography>
+                    <Typography className="typography-TabelasModelosView" >Marca</Typography>
                   </TableCell>
                   <TableCell align="center" style={{ width: "40%" }}>
-                    <Typography style={{ fontWeight: "bold", color: "black" }}>Ações&nbsp;</Typography>
+                    <Typography className="typography-TabelasModelosView" >Ações</Typography>
                   </TableCell>
                 </TableRow>
               </TableHead>

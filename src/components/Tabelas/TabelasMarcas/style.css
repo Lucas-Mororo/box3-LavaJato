@@ -1,4 +1,4 @@
-.div1-TabelaClientesView {
+.div1-TabelasMarcasView {
     width: 100%;
     flex-direction: column;
     margin: 0px;
@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.div2-TabelaClientesView {
+.div2-TabelasMarcasView {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 
-.div3-TabelaClientesView {
+.div3-TabelasMarcasView {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -26,27 +26,27 @@
     border-radius: 15px;
 }
 
-.div4-TabelaClientesView {
+.div4-TabelasMarcasView {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     flex-direction: row;
     gap: 10px;
 }
 
-.div5-TabelaClientesView {
+.div5-TabelasMarcasView {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
-.typography-TabelaClientesView {
+.typography-TabelasMarcasView {
     font-weight: bold;
     color: black
 }
 
-.div6-TabelaClientesView {
+.div6-TabelasMarcasView {
     display: flex;
     align-items: center;
     justify-content: center;

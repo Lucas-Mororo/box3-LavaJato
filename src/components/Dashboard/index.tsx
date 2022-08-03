@@ -1,11 +1,12 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import { Chart } from "primereact/chart";
 import { useAtendimentoContext } from "../../context/Atendimento/hooks/useAtendimentos";
 import { useServicosContext } from "../../context/Servico/hooks/useServicos";
 import { useForm } from "react-hook-form";
-import { Button, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Switch, TextField, Typography } from "@material-ui/core";
+import { Button, FormControl, TextField, Typography } from "@material-ui/core";
 import Notify from "../../utils/Notification";
-// import FormularioDashboard from "./FormularioDashboard";
+import './style.css';
 
 const Dashboard = () => {
     const { stateReducerAtendimentos } = useAtendimentoContext();
@@ -83,6 +84,7 @@ const Dashboard = () => {
                 },
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [verify])
 
     async function action(data: any, array: any, count: any) {
@@ -92,7 +94,7 @@ const Dashboard = () => {
         stateReducerServico.servicos.map((serv) => {
             stateReducerAtendimentos.atendimentos.map((atend) => {
                 if (atend.state === false) {
-                    if (atend.dataI >= data.dataI || atend.dataF <= data.dataF) {
+                    if (atend.dataI >= data.dataI && atend.dataF <= data.dataF) {
                         atend.servicos?.map((element) => {
                             if (serv.id === element.id) {
                                 array.push({
@@ -165,7 +167,7 @@ const Dashboard = () => {
         }
         stateReducerAtendimentos.atendimentos.map((element: any) => {
             if (element.state === false) {
-                if (element.dataI >= data.dataI || element.dataF <= data.dataF) {
+                if (element.dataI >= data.dataI && element.dataF <= data.dataF) {
                     // // MEDIA // //
                     let dataInical, aux;
                     aux = element.dataI.split("T");
@@ -188,51 +190,23 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className="card flex justify-content-center" style={{
-                width: "100%",
-                flexDirection: "column",
-                margin: "100px 0px 0px 0px",
-                padding: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}>
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        alignItems: "center",
-                        width: "60%",
-                        marginBottom: "10px",
-                        // border: "red solid"
-                    }}
-                >
-                    {/* <FormularioDashboard /> */}
-                    <div style={{
-                        width: "60%",
-                        margin: "0px"
-                    }}>
-                        <form
-                            onSubmit={handleSubmit((data) => {
-                                if (data.dataI > data.dataF) {
-                                    Notify("Data de busca invalida!", "warning")
-                                }
+            <div className="div1-Dashboard card flex justify-content-center">
+                <div className="div2-Dashboard">
+                    <div className="div3-Dashboard">
+                        <form onSubmit={handleSubmit((data) => {
+                            if (data.dataI > data.dataF) {
+                                setChartData([]);
+                                setLightOptions([]);
+                                Notify("Data de busca invalida!", "warning")
+                            } else {
                                 action({
                                     dataI: data.dataI,
                                     dataF: data.dataF,
                                 }, array, count);
-                            })}
+                            }
+                        })}
                         >
-                            <div
-                                style={{
-                                    width: "100%",
-                                    padding: "10px 0 10px 0",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    flexDirection: "row",
-                                    gap: "15px",
-                                }}>
+                            <div className="div4-Dashboard">
                                 <FormControl size='small' fullWidth>
                                     <TextField
                                         label='Data de Registro'
@@ -272,7 +246,7 @@ const Dashboard = () => {
                                     />
                                 </FormControl>
                             </div>
-                            <div style={{ margin: "10px 0px 20px 0px", display: "flex", width: "100%", justifyContent: "flex-end", alignItems: "center" }}>
+                            <div className="div5-Dashboard">
                                 <Button
                                     style={{
                                         backgroundColor: "#0195ff",
@@ -287,34 +261,28 @@ const Dashboard = () => {
                                 </Button>
                             </div>
                         </form>
-                        <div
-                            style={{
-                                width: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                flexDirection: "column",
-                                // gap: "15px",
-                            }}
-                        >
+                        <div className="div6-Dashboard">
                             {
                                 media === undefined
                                     ?
-                                    <Typography variant="h5" component="h6" style={{ color: "black" }}>
+                                    <Typography
+                                        className="typography1-Dashboard"
+                                        variant="h5"
+                                        component="h6">
                                         Faça uma pesquisa para saber o tempo médio de atendimento.
                                     </Typography>
                                     :
                                     <>
-                                        <Typography variant="h5" component="h6" style={{ color: "black" }}>
+                                        <Typography className="typography1-Dashboard" variant="h5" component="h6">
                                             Média de atendimentos para o período:
                                         </Typography>
                                         <div>
                                             {
-                                                media === undefined
+                                                media === undefined || NaN
                                                     ?
                                                     <></>
                                                     :
-                                                    <Typography variant="h5" component="h6" style={{ color: "black" }}>
+                                                    <Typography className="typography1-Dashboard" variant="h5" component="h6">
                                                         {media} minutos
                                                     </Typography>
                                             }

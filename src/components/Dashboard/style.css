@@ -1,0 +1,52 @@
+.div1-Dashboard {
+    width: 100%;
+    flex-direction: column;
+    margin: 100px 0px 0px 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div2-Dashboard {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.div3-Dashboard {
+    width: 60%;
+    margin: 0px;
+}
+
+.div4-Dashboard {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.div5-Dashboard {
+    margin: 10px 0px 20px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center
+}
+
+.div6-Dashboard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.typography1-Dashboard {
+    color: black;
+}

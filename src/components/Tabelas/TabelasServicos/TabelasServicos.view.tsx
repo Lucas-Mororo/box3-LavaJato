@@ -5,8 +5,9 @@ import Dialog from "../../Dialogs/DialogServicos/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import SearchIcon from "@material-ui/icons/Search";
 import MyImage from "../../../img/logo_Box3.png";
+import './style.css';
 
-export default function TabelasMservicosView(): React.ReactElement {
+export default function TabelasServicosView(): React.ReactElement {
     const { stateReducerServico, deleteServico } = useServicosContext();
 
     setTimeout(() => {
@@ -18,80 +19,44 @@ export default function TabelasMservicosView(): React.ReactElement {
 
     return (
         <>
-            <div
-                style={{
-                    width: "100%",
-                    flexDirection: "column",
-                    margin: "0px",
-                    padding: "0px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: "70%",
-                        marginBottom: "10px",
-                    }}
-                >
-                    <div
-                        style={{
-                            display: "flex",
-                            width: "100%",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            padding: "10px",
-                            margin: "20px 0px 20px 0px",
-                            borderRadius: "15px",
-                        }}
-                    >
+            <div className="div1-TabelasServicosView">
+                <div className="div2-TabelasServicosView">
+                    <div className="div3-TabelasServicosView">
                         <Box>
                             <Typography variant="h4" component="h6">
                                 Servicos
                             </Typography>
                         </Box>
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyItems: "center",
-                                flexDirection: "row",
-                                gap: "10px",
-                            }}
-                        >
+                        <div className="div4-TabelasServicosView">
                             <Dialog action={"CadastroServico"} id={0} servicos={stateReducerServico.servicos} />
                         </div>
                     </div>
                 </div>
             </div>
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", }}>
+            <div className="div5-TabelasServicosView">
                 <Paper style={{ width: "70%" }}>
                     <TableContainer>
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead>
                                 <TableRow hover role="checkbox" tabIndex={-1}>
                                     <TableCell align="left" style={{ width: "35%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Serviço&nbsp;
+                                        <Typography className="typography-TabelasServicosView">
+                                            Serviço
                                         </Typography>
                                     </TableCell>
                                     <TableCell align="center" style={{ width: "35%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Descrição&nbsp;
+                                        <Typography className="typography-TabelasServicosView">
+                                            Descrição
                                         </Typography>
                                     </TableCell>
                                     <TableCell align="center" style={{ width: "15%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Valor&nbsp;
+                                        <Typography className="typography-TabelasServicosView">
+                                            Valor
                                         </Typography>
                                     </TableCell>
                                     <TableCell align="center" style={{ width: "20%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Ações&nbsp;
+                                        <Typography className="typography-TabelasServicosView">
+                                            Ações
                                         </Typography>
                                     </TableCell>
                                 </TableRow>
@@ -111,14 +76,7 @@ export default function TabelasMservicosView(): React.ReactElement {
                                         </TableCell>
 
                                         <TableCell align="center">
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    justifyContent: " center",
-                                                    gap: "10px",
-                                                }}
-                                            >
+                                            <div className="div6-TabelasServicosView">
                                                 <Dialog
                                                     action={"AlterarServico"}
                                                     id={servico.id}

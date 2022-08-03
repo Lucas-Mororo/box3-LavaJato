@@ -6,6 +6,7 @@ import Dialog from "../../Dialogs/DialogMarca/index";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { useModelosContext } from "../../../context/Modelo/hooks/useModelos";
 import Notify from "../../../utils/Notification";
+import './style.css';
 
 export default function TabelasMarcasView(): React.ReactElement {
     const { stateReducerMarca, deleteMarca } = useMarcasContext();
@@ -29,71 +30,33 @@ export default function TabelasMarcasView(): React.ReactElement {
     }
 
     return (
-        <div
-            style={{
-                width: "100%",
-                flexDirection: "column",
-                margin: "0px",
-                padding: "0px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "70%",
-                    marginBottom: "10px",
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        width: "100%",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "10px",
-                        margin: "20px 0px 20px 0px",
-                        borderRadius: "15px",
-                    }}
-                >
+        <div className="div1-TabelasMarcasView" >
+            <div className="div2-TabelasMarcasView">
+                <div className="div3-TabelasMarcasView">
                     <Box>
                         <Typography variant="h4" component="h6">
                             Marcas
                         </Typography>
                     </Box>
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyItems: "center",
-                            flexDirection: "row",
-                            gap: "10px",
-                        }}
-                    >
+                    <div className="div4-TabelasMarcasView">
                         <Dialog action={"CadastroMarca"} id={0} marcas={stateReducerMarca.marcas} />
                     </div>
                 </div>
             </div>
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div className="div5-TabelasMarcasView" style={{}}>
                 <Paper style={{ width: "70%" }}>
                     <TableContainer>
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead>
                                 <TableRow hover role="checkbox" tabIndex={-1}>
-                                    {/* <TableCell align="center" style={{ width: "20%" }}>
-                                    <Typography style={{ fontWeight: "bold", color: "black" }}>Id&nbsp;</Typography>
-                                </TableCell> */}
                                     <TableCell align="left" style={{ width: "60%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Marca&nbsp;
+                                        <Typography className="typography-TabelasMarcasView">
+                                            Marca
                                         </Typography>
                                     </TableCell>
                                     <TableCell align="center" style={{ width: "40%" }}>
-                                        <Typography style={{ fontWeight: "bold", color: "black" }}>
-                                            Ações&nbsp;
+                                        <Typography className="typography-TabelasMarcasView">
+                                            Ações
                                         </Typography>
                                     </TableCell>
                                 </TableRow>
@@ -106,14 +69,7 @@ export default function TabelasMarcasView(): React.ReactElement {
                                         </TableCell>
 
                                         <TableCell align="center">
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    justifyContent: " center",
-                                                    gap: "10px",
-                                                }}
-                                            >
+                                            <div className="div6-TabelasMarcasView">
                                                 <Dialog
                                                     action={"AlterarMarca"}
                                                     id={marca.id}
