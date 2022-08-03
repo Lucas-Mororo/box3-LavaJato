@@ -17,8 +17,6 @@ export const ClientesContext = React.createContext<ClientesContextType>(INI_VALU
 
 export const ClientesProvider = ({ children }: ChildrenProps) => {
 	const [clientes, setClientes] = React.useState<Clientes[]>([]);
-	// const [verification, setVerification] = React.useState<boolean>(true);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initialState = { clientes: [] };
 	const [stateReducer, dispatch] = React.useReducer(appReducer, initialState);
 

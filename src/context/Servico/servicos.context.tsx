@@ -24,7 +24,7 @@ export const ServicossProvider = ({ children }: ChildrenProps) => {
 
 	function deleteServico(id: number) {
 		if (window.confirm("Deseja deletar esta servico?")) {
-			Notify("Evento deletado com sucesso!");
+			Notify("Servico deletado com sucesso!");
 			dispatch({
 				type: "DELETE",
 				payload: id,

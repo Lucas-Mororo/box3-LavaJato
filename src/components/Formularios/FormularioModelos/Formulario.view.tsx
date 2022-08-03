@@ -18,11 +18,11 @@ export default function FormularioView(props: { action: string, id: number, mode
         if (props.action === "CadastroModelo") {
             props.setOpen(false);
             addModelo(data);
-            Notify("Modelo cadastrada com sucesso!", "success")
+            Notify("Modelo cadastrado com sucesso!", "success")
         } else {
             props.setOpen(false);
             updateModelo(data);
-            Notify("Modelo alterada com sucesso!", "success")
+            Notify("Modelo alterado com sucesso!", "success")
         }
     };
 

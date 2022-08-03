@@ -24,11 +24,11 @@ export default function FormularioView(props: { action: string, id: number, clie
         if (props.action === "CadastroCliente") {
             props.setOpen(false);
             addClient(data);
-            Notify("Usuário cadastrado com sucesso!", "success")
+            Notify("Cliente cadastrado com sucesso!", "success")
         } else {
             props.setOpen(false);
             updateClient(data);
-            Notify("Usuário alterado com sucesso!", "success")
+            Notify("Cliente alterado com sucesso!", "success")
         }
     };
 
@@ -131,7 +131,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                         <TextField
                             label='Digite seu nome*'
                             variant='outlined'
-                            // className={classes.textField}
                             type='text'
                             style={{
                                 width: "100%",
@@ -149,7 +148,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                         <TextField
                             label='Digite seu e-mail*'
                             variant='outlined'
-                            // className={classes.textField}
                             type='email'
                             style={{
                                 width: "100%",
@@ -298,7 +296,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                         <TextField
                             label='Digite seu CEP*'
                             variant='outlined'
-                            // className={classes.textField}
                             type='text'
                             style={{
                                 width: "100%",
@@ -335,9 +332,9 @@ export default function FormularioView(props: { action: string, id: number, clie
                         }) => (
                             <TextField
                                 style={{ width: "100%", margin: "0px" }}
-                                // className={classes.textField}
                                 label="Cidade*"
                                 variant='outlined'
+                                onChange={(e) => { onChange(e) }}
                                 fullWidth
                                 margin="normal"
                                 value={getValues("cidade") ? value : ""}
@@ -362,6 +359,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                                 variant='outlined'
                                 fullWidth
                                 margin="normal"
+                                onChange={(e) => { onChange(e) }}
                                 value={getValues("bairro") ? value : ""}
                                 error={errors.bairro?.type === "required"}
                                 helperText={errors.bairro?.type === "required" && "O campo 'bairro' é obrigatório"}
@@ -384,6 +382,7 @@ export default function FormularioView(props: { action: string, id: number, clie
                                 variant='outlined'
                                 fullWidth
                                 margin="normal"
+                                onChange={(e) => { onChange(e) }}
                                 value={getValues("logradouro") ? value : ""}
                                 error={errors.logradouro?.type === "required"}
                                 helperText={errors.logradouro?.type === "required" && "O campo 'logradouro' é obrigatório"}
@@ -395,7 +394,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                         <TextField
                             label='Digite seu Número'
                             variant='outlined'
-                            // className={classes.textField}
                             type='number'
                             style={{
                                 width: "100%",
@@ -413,7 +411,6 @@ export default function FormularioView(props: { action: string, id: number, clie
                         <TextField
                             label='Digite seu Complemento*'
                             variant='outlined'
-                            // className={classes.textField}
                             type='text'
                             style={{
                                 width: "100%",

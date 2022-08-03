@@ -1,14 +1,15 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: "#0195ff",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -22,74 +23,52 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   const classes = useStyles();
   const navigate = useNavigate();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    console.log("🚀 ~ file: index.tsx ~ line 29 ~ handleChange ~ newValue", newValue)
+    setValue(newValue);
+    switch (newValue) {
+      case 0:
+        navigate("/")
+        return
+      case 1:
+        navigate("/LavaJato/Marcas")
+        return
+      case 2:
+        navigate("/LavaJato/Modelos")
+        return
+      case 3:
+        navigate("/LavaJato/Clientes")
+        return
+      case 4:
+        navigate("/LavaJato/Servicos")
+        return
+      case 5:
+        navigate("/LavaJato/Atendimentos")
+        return
+      default:
+        navigate("/")
+    }
+  };
 
   return (
-    <div className={classes.root}>
-      <AppBar
-        position="static"
-        style={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#0195ff",
-        }}
+    <Paper square className={classes.root}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
       >
-        <Toolbar
-          style={{
-            width: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "15px",
-          }}
-        >
-          <Button color="inherit" onClick={() => navigate("/")}>
-            <Typography variant="subtitle2" className="typographyButton">
-              Dashboard
-            </Typography>
-          </Button>
+        <Tab style={{ color: "white" }} label="Dashboard" />
+        <Tab style={{ color: "white" }} label="Marcas" />
+        <Tab style={{ color: "white" }} label="Modelos" />
+        <Tab style={{ color: "white" }} label="Clientes" />
+        <Tab style={{ color: "white" }} label="Serviços" />
+        <Tab style={{ color: "white" }} label="Atendimentos" />
 
-          <Button color="inherit" onClick={() => navigate("/LavaJato/Marcas")}>
-            <Typography variant="subtitle2" className="typographyButton">
-              Marcas
-            </Typography>
-          </Button>
-
-          <Button color="inherit" onClick={() => navigate("/LavaJato/Modelos")}>
-            <Typography variant="subtitle2" className="typographyButton">
-              Modelos
-            </Typography>
-          </Button>
-
-          <Button
-            color="inherit"
-            onClick={() => navigate("/LavaJato/Clientes")}
-          >
-            <Typography variant="subtitle2" className="typographyButton">
-              Clientes
-            </Typography>
-          </Button>
-
-          <Button
-            color="inherit"
-            onClick={() => navigate("/LavaJato/Servicos")}
-          >
-            <Typography variant="subtitle2" className="typographyButton">
-              Serviços
-            </Typography>
-          </Button>
-
-          <Button
-            color="inherit"
-            onClick={() => navigate("/LavaJato/Atendimentos")}
-          >
-            <Typography variant="subtitle2" className="typographyButton">
-              Atendimentos
-            </Typography>
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+      </Tabs>
+    </Paper >
   );
 }

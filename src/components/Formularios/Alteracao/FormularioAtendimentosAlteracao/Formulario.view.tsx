@@ -153,7 +153,7 @@ export default function FormularioView(props: { id: number, atendimentos: Atendi
 
     function deleteServicoAtendimento(id: number) {
         if (window.confirm("Deseja deletar este Serviço?")) {
-            Notify("Evento deletado com sucesso!");
+            Notify("Atendimento deletado com sucesso!");
             dispatch({
                 type: "DELETE",
                 payload: id,
@@ -367,7 +367,7 @@ export default function FormularioView(props: { id: number, atendimentos: Atendi
                                     fullWidth
                                     margin="normal"
                                     value={getValues("state") ? value : ""}
-                                    defaultValue={true}
+                                    // defaultValue={true}
                                     onChange={(e) => { isActive(); onChange(e) }}
                                     error={errors.state?.type === "required"}
                                     helperText={errors.state?.type === "required" && <span>O campo "Status" é obrigatório!</span>}

@@ -16,11 +16,11 @@ export default function FormularioView(props: { action: string, id: number, serv
         if (props.action === "CadastroServico") {
             props.setOpen(false);
             addServico(data);
-            Notify("Usuário cadastrado com sucesso!", "success")
+            Notify("Serviço cadastrado com sucesso!", "success")
         } else {
             props.setOpen(false);
             updateServico(data);
-            Notify("Usuário alterado com sucesso!", "success")
+            Notify("Serviço alterado com sucesso!", "success")
         }
     };
 
@@ -52,7 +52,7 @@ export default function FormularioView(props: { action: string, id: number, serv
                     }
                 } else {
                     setDisabled(true);
-                    const id = props.servicos.length+1;
+                    const id = props.servicos.length + 1;
                     action({
                         servico: data.servico,
                         descricao: data.descricao,
@@ -127,7 +127,7 @@ export default function FormularioView(props: { action: string, id: number, serv
                     />
                 </FormControl>
 
-               
+
             </div>
             <div style={{ marginTop: "10px", display: "flex", width: "100%", justifyContent: "flex-end", alignItems: "center" }}>
                 <Button

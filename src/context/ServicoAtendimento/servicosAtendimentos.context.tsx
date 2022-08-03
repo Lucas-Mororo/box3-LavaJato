@@ -22,7 +22,7 @@ export const ServicosAtendimentossProvider = ({ children }: ChildrenProps) => {
 
 	function deleteServicoAtendimento(id: number) {
 		if (window.confirm("Deseja deletar esta servico?")) {
-			Notify("Evento deletado com sucesso!");
+			// Notify("Evento deletado com sucesso!");
 			dispatch({
 				type: "DELETE",
 				payload: id,

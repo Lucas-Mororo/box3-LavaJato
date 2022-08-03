@@ -22,7 +22,7 @@ export const ModelossProvider = ({ children }: ChildrenProps) => {
 
 	function deleteModelo(id: number) {
 		if (window.confirm("Deseja deletar esta modelo?")) {
-			Notify("Evento deletado com sucesso!");
+			Notify("Modelo deletado com sucesso!");
 			dispatch({
 				type: "DELETE",
 				payload: id,
